@@ -68,7 +68,15 @@ import math
 #print(f"{resultado}.")
 
 # 12. Crie um programa que receba o nome completo do usuário e imprima o nome com todas as letras minúsculas.
+#nome = input("Escreva o seu nome completo para converter para todas as letras minúsculas: ")
+#resultado = nome.lower()
+#print(f"{resultado}.")
+
 # 13. Desenvolva um programa que peça ao usuário para inserir uma frase e, em seguida, imprima esta frase sem espaços em branco no início e no final.
+frase = input("Escreva uma frase: ")
+resultado = frase.strip()
+print(f"Frase sem espaços nas pontos: {resultado}")
+
 # 14. Faça um programa que peça ao usuário para digitar uma data no formato "dd/mm/aaaa" e, em seguida, imprima o dia, o mês e o ano separadamente.
 #data_do_usuario = input("Insira uma data no formato dd/mm/aaaa: ")
 #lista_dia_mes_ano = data_do_usuario.split("/")
