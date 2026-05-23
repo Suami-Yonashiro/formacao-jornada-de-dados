@@ -9,13 +9,13 @@ import math
 #print(f"O resultado da soma dos dois numeros é igual a {resultado}.")
 
 # 2. Crie um programa que receba um número do usuário e calcule o resto da divisão desse número por 5.
-#num = float(input("Digite um número para obter o resto da divisão por 5: "))
+#num = int(input("Digite um número para obter o resto da divisão por 5: "))
 #resultado = num % 5 
 #print(f"O resto da divisão por 5 é igual a {resultado}.")
 
 # 3. Desenvolva um programa que multiplique dois números fornecidos pelo usuário e mostre o resultado.
-#num_01 = float(input("Multiplicação, digite um número: "))
-#num_02 = float(input("Digite outro número: "))
+#num_01 = int(input("Multiplicação, digite um número: "))
+#num_02 = int(input("Digite outro número: "))
 #resultado = num_01 * num_02
 #print(f"A multiplicação entre os dois números é igual a {resultado}.")
 
@@ -23,7 +23,7 @@ import math
 #num_01 = int(input("Digite um número inteiro: "))
 #num_02 = int(input("Digite outro número inteiro: "))
 #resultado = num_01 // num_02
-#print(f"A divisão inteira do 1° pelo 2° número é igual {resultado}")
+#print(f"A divisão inteira do 1° pelo 2° número é igual {resultado}.")
 
 # 5. Escreva um programa que calcule o quadrado de um número fornecido pelo usuário.
 #num = int(input("Digite um número para saber a sua potência: "))
@@ -33,9 +33,28 @@ import math
 # #### Números de Ponto Flutuante (`float`)
 
 # 6. Escreva um programa que receba dois números flutuantes e realize sua adição.
+#num_01 = float(input("Digite um número flutuante: "))
+#num_02 = float(input("Digite outro número flutuante: "))
+#resultado = num_01 + num_02
+#print(f"O resultado da soma dos dois numeros flutuantes é igual a {resultado}.")
+
 # 7. Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.
+#num_01 = float(input("Média. Digite um número flutuante: "))
+#num_02 = float(input("Digite outro número flutuante: "))
+#media = (num_01 + num_02) / 2
+#print(f"A média da soma de {num_01} com {num_02} é igual a {media}.")
+
 # 8. Desenvolva um programa que calcule a potência de um número (base e expoente fornecidos pelo usuário).
+#base = float(input("Digite a base de uma potência: "))
+#expoente = int(input("Digite o seu expoente: "))
+#resultado = base ** expoente
+#print(f"A exponenciação de {base} com {expoente} é igual a {resultado}.")
+
 # 9. Faça um programa que converta a temperatura de Celsius para Fahrenheit.
+#temp_celsius = float(input("Conversão. Digite a temperatura em Celsius: "))
+#conversao = (temp_celsius * 1.8) + 32
+#print(f"A conversão de {temp_celsius}°C para Fahrenheit é {conversao:.1f}°F.")
+
 # 10. Escreva um programa que calcule a área de um círculo, recebendo o raio como entrada.
 #raio = float(input("Para saber a área digite o raio da circunferência: "))
 #area = ((raio**2)*math.pi)
