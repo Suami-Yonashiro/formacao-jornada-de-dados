@@ -189,28 +189,48 @@ import math
 #     print("\nEntrada inválida: Digite apenas números.")    
 
 # 24: Classificador de Números
-print("=== Classificador de Números ===")
-try:
-    numero = int(input("Digite um número inteiro: "))
-    categoria_sinal = ""
-    categoria_paridade = ""
+# print("=== Classificador de Números ===")
+# try:
+#     numero = int(input("Digite um número inteiro: "))
+#     categoria_sinal = ""
+#     categoria_paridade = ""
     
-    if numero > 0:
-        categoria_sinal = "Positivo"
-    elif numero < 0 :
-        categoria_sinal = "Negativo"
-    else:
-        categoria_sinal = "Zero"
+#     if numero > 0:
+#         categoria_sinal = "Positivo"
+#     elif numero < 0 :
+#         categoria_sinal = "Negativo"
+#     else:
+#         categoria_sinal = "Zero"
         
-    if numero == 0:
-        categoria_paridade = "Neutro"
-    elif numero % 2 == 0:
-        categoria_paridade = "Par"
-    else:
-        categoria_paridade = "Ímpar"
+#     if numero == 0:
+#         categoria_paridade = "Neutro"
+#     elif numero % 2 == 0:
+#         categoria_paridade = "Par"
+#     else:
+#         categoria_paridade = "Ímpar"
         
-    print(f"Análise do {numero}, sinal {categoria_sinal} e paridade {categoria_paridade}.")
-except ValueError:
-    print("\n[Erro]: Entrada inválida, digite apenas números inteiros.")
+#     print(f"Análise do {numero}, sinal {categoria_sinal} e paridade {categoria_paridade}.")
+# except ValueError:
+#     print("\n[Erro]: Entrada inválida, digite apenas números inteiros.")
 
 # 25: Conversão de Tipo com Validação
+print("=== Detector e Conversor de Tipos ===")
+entrada = input("Digite qualquer valor (texto, número, etc: )").strip()
+if not entrada:
+    print("\n[Erro]: Você não digitou nada.")
+else:
+    
+    try:
+        valor_convertido = int(entrada)
+        print(f"Tipo detectado: Inteiro (int).")
+        print(f"O valor no Python: {valor_convertido}.")
+
+    except ValueError:
+        try:
+            entrada_ajustada = entrada.replace(",", ".")
+            valor_convertido = float(entrada_ajustada)
+            print(f"Tipo detectado: Decimal (float).")
+            print(f"O valor no Python: {valor_convertido}.")
+        except ValueError:
+            print(f"O valor {entrada} não pode ser convertido para número.")
+            print(f"Tipo detectado: Texto (str).") 
