@@ -127,6 +127,17 @@ import math
 # #### try-except e if
 
 # 21: Conversor de Temperatura
+print("=== Conversor de Celsius para Fahrenheit ===")
+try:
+    celsius = float(input("Digite a temperatura em Celsius (°C): "))
+    if celsius < -273.15: 
+        print("Erro: Essa temperatura é menor que zero absoluto.")
+    else:
+        fahrenheit = (celsius * 9/5) + 32
+        print(f"{celsius}°C equivale a {fahrenheit:.2f}°F.")
+except ValueError:
+    print("\n[Erro]: Você NÃO digitou um número válido!")
+
 # 22: Verificador de Palíndromo
 # 23: Calculadora Simples
 # 24: Classificador de Números
