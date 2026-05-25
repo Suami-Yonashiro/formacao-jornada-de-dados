@@ -139,22 +139,54 @@ import math
 #     print("\n[Erro]: Você NÃO digitou um número válido!")
 
 # 22: Verificador de Palíndromo
-print("=== Verificador de Palíndromo ===")
-try:
-    entrada = input("Digite uma palavra ou frase: ")
-    if not entrada.strip():
-        raise ValueError("Entrada vazia.")
-    texto_limpo = entrada.replace(" ", "").lower()
-    texto_invertido = texto_limpo[::-1]
-    if texto_limpo == texto_invertido:
-        print(f"{entrada} é um palíndromo! 🎉")
-        print(f"O texto lido ao contrário: {texto_invertido}.")
-    else: 
-        print(f"O texto não é um palíndromo ❌.")
-        print(f"O textlo lido ao contrário: {texto_invertido}. ")
-except ValueError:
-    print("\n[Erro]: Você digitou nenhuma palavra tente novamente.")
+# print("=== Verificador de Palíndromo ===")
+# try:
+#     entrada = input("Digite uma palavra ou frase: ")
+#     if not entrada.strip():
+#         raise ValueError("Entrada vazia.")
+#     texto_limpo = entrada.replace(" ", "").lower()
+#     texto_invertido = texto_limpo[::-1]
+#     if texto_limpo == texto_invertido:
+#         print(f"{entrada} é um palíndromo! 🎉")
+#         print(f"O texto lido ao contrário: {texto_invertido}.")
+#     else: 
+#         print(f"O texto não é um palíndromo ❌.")
+#         print(f"O textlo lido ao contrário: {texto_invertido}. ")
+# except ValueError:
+#     print("\n[Erro]: Você digitou nenhuma palavra tente novamente.")
 
 # 23: Calculadora Simples
+print("=== Calculadora Simples ===")
+try:
+    num_01 = float(input("Digite o primeiro número: "))
+    num_02 = float(input("Digite o segundo número: "))
+    
+    print("\nOperações Disponíveis: ")
+    print("+ -> Adição.")
+    print("- -> Subtração.")
+    print("* -> Multiplicação.")
+    print("/ -> Divisão.")
+    operacao = input("Escolha a operação correspondente (+, -, *, /): ").strip()
+    
+    if operacao == "+":
+        resultado = num_01 + num_02
+        print(f"\nResultado: {num_01} + {num_02} = {resultado}")
+    elif operacao == "-":
+        resultado = num_01 - num_02
+        print(f"\nResultado: {num_01} - {num_02} = {resultado}")
+    elif operacao == "*":
+        resultado = num_01 * num_02
+        print(f"\nResultado: {num_01} * {num_02} = {resultado}")
+    elif operacao == "/":
+        if num_02 == 0:
+            print("\n[Erro matemático]: Não é possível dividir um número por zero!")
+        else:
+            resultado = num_01 / num_02
+            print(f"\nResultado: {num_01} / {num_02} = {resultado}")
+    else:
+        print("\nOperação inválida: Escolha apenas entre +, -, * ou /.")
+except ValueError:
+    print("\nEntrada inválida: Digite apenas números.")    
+
 # 24: Classificador de Números
 # 25: Conversão de Tipo com Validação
