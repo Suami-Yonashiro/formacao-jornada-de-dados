@@ -91,17 +91,38 @@ import math
 # #### Booleanos (`bool`)
 
 # 16. Escreva um programa que avalie duas expressões booleanas inseridas pelo usuário e retorne o resultado da operação AND entre elas.
-entr_01 = input("Digite a primeira expresão (True/False): ")
-entr_02 = input("Digite a segunda expressão (True/False): ")
-valor1 = entr_01.strip().capitalize() == "True"
-valor2 = entr_02.strip().capitalize() == "True"
-resultado = valor1 and valor2
-print(f"{valor1} AND {valor2} é igual a: {resultado}")
+#entr_01 = input("Digite a primeira expresão (True/False): ")
+#entr_02 = input("Digite a segunda expressão (True/False): ")
+#valor1 = entr_01.strip().capitalize() == "True"
+#valor2 = entr_02.strip().capitalize() == "True"
+#resultado = valor1 and valor2
+#print(f"{valor1} AND {valor2} é igual a: {resultado}")
 
 # 17. Crie um programa que receba dois valores booleanos do usuário e retorne o resultado da operação OR.
+#entr_01 = input("Digite o primeiro valor booleano (True/False): ")
+#entr_02 = input("Digite o segundo valor booleano (True/False): ")
+#valor1 = entr_01.strip().capitalize() == "True"
+#valor2 = entr_02.strip().capitalize() == "True"
+#resultado = valor1 or valor2
+#print(f"O resultado de: {valor1} or {valor2} é -> {resultado}.")
+
 # 18. Desenvolva um programa que peça ao usuário para inserir um valor booleano e, em seguida, inverta esse valor.
+#entr_ = input("Digite um valor booleano (True/False): ")
+#valor_ = entr_.strip().capitalize() == "True"
+#resultado = not valor_
+#print(f"O valor invertido de {valor_} é {resultado}.") 
+
 # 19. Faça um programa que compare se dois números fornecidos pelo usuário são iguais.
+#num_01 = int(input("Digite o primeiro número: "))
+#num_02 = int(input("Digite o segundo número: "))
+#resultado = num_01 == num_02
+#print(f"Os numeros {num_01} e {num_02} são iguais? {resultado}.")
+
 # 20. Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.
+#num_01 = int(input("Digite o primeiro número: "))
+#num_02 = int(input("Digite o segundo número: "))
+#resultado = num_01 != num_02
+#print(f"Os numeros {num_01} e {num_02} são diferentes? {resultado}.")
 
 # #### try-except e if
 
