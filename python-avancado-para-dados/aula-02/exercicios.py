@@ -156,37 +156,61 @@ import math
 #     print("\n[Erro]: Você digitou nenhuma palavra tente novamente.")
 
 # 23: Calculadora Simples
-print("=== Calculadora Simples ===")
-try:
-    num_01 = float(input("Digite o primeiro número: "))
-    num_02 = float(input("Digite o segundo número: "))
+# print("=== Calculadora Simples ===")
+# try:
+#     num_01 = float(input("Digite o primeiro número: "))
+#     num_02 = float(input("Digite o segundo número: "))
     
-    print("\nOperações Disponíveis: ")
-    print("+ -> Adição.")
-    print("- -> Subtração.")
-    print("* -> Multiplicação.")
-    print("/ -> Divisão.")
-    operacao = input("Escolha a operação correspondente (+, -, *, /): ").strip()
+#     print("\nOperações Disponíveis: ")
+#     print("+ -> Adição.")
+#     print("- -> Subtração.")
+#     print("* -> Multiplicação.")
+#     print("/ -> Divisão.")
+#     operacao = input("Escolha a operação correspondente (+, -, *, /): ").strip()
     
-    if operacao == "+":
-        resultado = num_01 + num_02
-        print(f"\nResultado: {num_01} + {num_02} = {resultado}")
-    elif operacao == "-":
-        resultado = num_01 - num_02
-        print(f"\nResultado: {num_01} - {num_02} = {resultado}")
-    elif operacao == "*":
-        resultado = num_01 * num_02
-        print(f"\nResultado: {num_01} * {num_02} = {resultado}")
-    elif operacao == "/":
-        if num_02 == 0:
-            print("\n[Erro matemático]: Não é possível dividir um número por zero!")
-        else:
-            resultado = num_01 / num_02
-            print(f"\nResultado: {num_01} / {num_02} = {resultado}")
-    else:
-        print("\nOperação inválida: Escolha apenas entre +, -, * ou /.")
-except ValueError:
-    print("\nEntrada inválida: Digite apenas números.")    
+#     if operacao == "+":
+#         resultado = num_01 + num_02
+#         print(f"\nResultado: {num_01} + {num_02} = {resultado}")
+#     elif operacao == "-":
+#         resultado = num_01 - num_02
+#         print(f"\nResultado: {num_01} - {num_02} = {resultado}")
+#     elif operacao == "*":
+#         resultado = num_01 * num_02
+#         print(f"\nResultado: {num_01} * {num_02} = {resultado}")
+#     elif operacao == "/":
+#         if num_02 == 0:
+#             print("\n[Erro matemático]: Não é possível dividir um número por zero!")
+#         else:
+#             resultado = num_01 / num_02
+#             print(f"\nResultado: {num_01} / {num_02} = {resultado}")
+#     else:
+#         print("\nOperação inválida: Escolha apenas entre +, -, * ou /.")
+# except ValueError:
+#     print("\nEntrada inválida: Digite apenas números.")    
 
 # 24: Classificador de Números
+print("=== Classificador de Números ===")
+try:
+    numero = int(input("Digite um número inteiro: "))
+    categoria_sinal = ""
+    categoria_paridade = ""
+    
+    if numero > 0:
+        categoria_sinal = "Positivo"
+    elif numero < 0 :
+        categoria_sinal = "Negativo"
+    else:
+        categoria_sinal = "Zero"
+        
+    if numero == 0:
+        categoria_paridade = "Neutro"
+    elif numero % 2 == 0:
+        categoria_paridade = "Par"
+    else:
+        categoria_paridade = "Ímpar"
+        
+    print(f"Análise do {numero}, sinal {categoria_sinal} e paridade {categoria_paridade}.")
+except ValueError:
+    print("\n[Erro]: Entrada inválida, digite apenas números inteiros.")
+
 # 25: Conversão de Tipo com Validação
