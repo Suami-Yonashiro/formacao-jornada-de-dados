@@ -29,12 +29,36 @@
 # com severidade 'ERROR'. Dado um registro de log em formato de dicionário 
 # como `log = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}`, 
 # escreva um programa que imprima a mensagem se a severidade for 'ERROR'.
+# pasta_erros = []
+# pasta_avisos = []
+# pasta_sucessos = [] # temos o log como dicionário acima, porém essa analise muitas vezes vem de uma lista e criamos as pastas para separar as ocorrências.
+# for log in logs:
+#     if log['level'] == 'ERROR':
+#         pasta_erros.append(log['message'])
+#     elif log['level'] == 'WARNING':
+#         pasta_avisos.append(log['message'])
+#     elif log['level'] == 'SUCCESS':
+#         pasta_sucessos.append(log['message'])
+#     else:
+#         print(f"Aviso: Nível desconhecido encontrado: {log['level']}")
 
 ### Exercício 4: Validação de Dados de Entrada
 # Antes de processar os dados de usuários em um sistema de recomendação, 
 # você precisa garantir que cada usuário tenha idade entre 18 e 65 anos e tenha 
 # fornecido um email válido. Escreva um programa que valide essas condições 
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
+
+nome, idade_texto, email = input("Digite nome, idade e e-mail (separados por espaço): ").split()
+idade = int(idade_texto)
+print("n\\--- Analisando Dados---")
+if idade < 18:
+    print(f"Erro: {nome} deve ter pelo menos 18 anos.")
+elif idade > 65:
+    print(f"Erro: {nome} deve ter no máximo 65 anos.")
+elif ('@' not in email) and ('.com' not in email):
+    print("O formato do e-mail está errada.")
+else:
+    print(f"Dados do usuário válidos! Bem-vindo(a) {nome}.")
 
 ### Exercício 5: Detecção de Anomalias em Dados de Transações
 # Você está trabalhando em um sistema de detecção de fraude e precisa identificar 
