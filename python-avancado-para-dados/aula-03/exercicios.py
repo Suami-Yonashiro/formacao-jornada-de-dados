@@ -47,18 +47,17 @@
 # você precisa garantir que cada usuário tenha idade entre 18 e 65 anos e tenha 
 # fornecido um email válido. Escreva um programa que valide essas condições 
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
-
-nome, idade_texto, email = input("Digite nome, idade e e-mail (separados por espaço): ").split()
-idade = int(idade_texto)
-print("n\\--- Analisando Dados---")
-if idade < 18:
-    print(f"Erro: {nome} deve ter pelo menos 18 anos.")
-elif idade > 65:
-    print(f"Erro: {nome} deve ter no máximo 65 anos.")
-elif ('@' not in email) and ('.com' not in email):
-    print("O formato do e-mail está errada.")
-else:
-    print(f"Dados do usuário válidos! Bem-vindo(a) {nome}.")
+# nome, idade_texto, email = input("Digite nome, idade e e-mail (separados por espaço): ").split()
+# idade = int(idade_texto)
+# print("n\\--- Analisando Dados---")
+# if idade < 18:
+#     print(f"Erro: {nome} deve ter pelo menos 18 anos.")
+# elif idade > 65:
+#     print(f"Erro: {nome} deve ter no máximo 65 anos.")
+# elif ('@' not in email) and ('.com' not in email):
+#     print("O formato do e-mail está errada.")
+# else:
+#     print(f"Dados do usuário válidos! Bem-vindo(a) {nome}.")
 
 ### Exercício 5: Detecção de Anomalias em Dados de Transações
 # Você está trabalhando em um sistema de detecção de fraude e precisa identificar 
