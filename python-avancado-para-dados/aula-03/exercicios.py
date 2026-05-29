@@ -130,9 +130,19 @@
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
 # Resposta:
+# numeros = range(1, 11)
+# pares = []
+# impares = []
+# for numero in numeros:
+#     if numero % 2 == 0:
+#         pares.append(numero)
+#     else:
+#         impares.append(numero)
+# print(f"Os número pares são: {pares}.")
 
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
+# Resposta:
 
 ### Exercícios com WHILE
 
