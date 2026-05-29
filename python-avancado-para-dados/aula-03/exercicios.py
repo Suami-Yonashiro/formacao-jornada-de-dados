@@ -143,6 +143,22 @@
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
 # Resposta:
+# vendas = [
+#     {"produto": "Teclado", "categoria": "Eletrônicos", "preco": 150},
+#     {"produto": "Camiseta", "categoria": "Vestuário", "preco": 80},
+#     {"produto": "Mouse", "categoria": "Eletrônicos", "preco": 90},
+#     {"produto": "Calça Jeans", "categoria": "Vestuário", "preco": 120},
+#     {"produto": "Caderno", "categoria": "Papelaria", "preco": 30}
+# ]
+# faturamento_por_categoria = {}
+# for venda in vendas:
+#     categoria = venda["categoria"]
+#     preco = venda["preco"]
+#     if categoria in faturamento_por_categoria:
+#         faturamento_por_categoria[categoria] += preco
+#     else:
+#         faturamento_por_categoria[categoria] = preco
+# print(faturamento_por_categoria)
 
 ### Exercícios com WHILE
 
