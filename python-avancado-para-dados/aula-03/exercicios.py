@@ -164,9 +164,20 @@
 
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
+# Resposta:
+# dados_coletados = []
+# while True:
+#     entrada = input("Digite um dados (para encerrar digite 'sair): ")
+#     if entrada.lower() == "sair":
+#         print("\n[Sair detectado. Encerrando coleta!]")
+#         break
+#     dados_coletados.append(entrada)
+# print(f"Total de registros: {len(dados_coletados)}.")
+# print(f"Dados coletados: {dados_coletados}.")
 
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
+# Resposta:
 
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
