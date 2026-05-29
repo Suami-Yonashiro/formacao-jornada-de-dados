@@ -179,16 +179,18 @@
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
 # Resposta:
 # Validador que solicita uma nota de satisfação do cliente de 1 a 5.
-while True:
-    entrada = input("Digite uma nota de 1 a 5: ").strip()
-    if entrada.isdigit():
-        nota = int(entrada)
-        if 1 <= nota <= 5:
-            print(f"\nObrigado nota {nota} registrada com sucesso.")
-            break
-        else:
-            print("ERRO. A nota deve ser de 1 a 5, tente novamente!")
-
+# while True:
+#     entrada = input("Digite uma nota de 1 a 5: ").strip()
+#     if entrada.lstrip('-').isdigit():
+#         nota = int(entrada)
+#         if 1 <= nota <= 5:
+#             print(f"\nObrigado nota {nota} registrada com sucesso.")
+#             break
+#         else:
+#             print("ERRO. A nota deve ser de 1 a 5, tente novamente!")
+#     else:
+#         print("ERRO. Você deve digitar um número inteiro, tente novamente!")
+   
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
 
