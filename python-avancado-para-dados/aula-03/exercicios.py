@@ -108,10 +108,28 @@
 # print(f"Dados normalizados: {dados_normalizados}")
 
 ### Exercício 8. Filtragem de Dados Faltantes
-# Objetivo:** Dada uma lista de dicionários representando dados de usuários, filtrar aqueles que têm um campo específico faltando
+# Objetivo:** Dada uma lista de dicionários representando dados de usuários, filtrar aqueles que têm um campo específico faltando.
+# Resposta:
+# usuarios = [
+#     {"nome": "Priscila", "email": "priscila@email.com"},
+#     {"nome": "Suami", "email": None}, 
+#     {"nome": "Carlos", "email": "carlos@email.com"},
+#     {"nome": "Paula"}
+# ]
+# usuarios_completos = []
+# usuarios_dados_faltantes = []
+# for usuario in usuarios:
+#     email = usuario.get("email")
+#     if email is None:
+#         usuarios_dados_faltantes.append(usuario)
+#     else:
+#         usuarios_completos.append(usuario)
+# print(f"Usuários com os dados completos: {usuarios_completos}.")
+# print(f"Usuários com dados faltantes: {usuarios_dados_faltantes}.")
 
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
+# Resposta:
 
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
