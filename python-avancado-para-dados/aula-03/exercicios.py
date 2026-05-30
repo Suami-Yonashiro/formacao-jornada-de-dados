@@ -16,7 +16,7 @@ else:
 # Os dados incluem medições de temperatura. Você precisa classificar cada leitura 
 # como 'Baixa', 'Normal' ou 'Alta'. Considerando que:
 # Resposta:
-Temperatura < 18°C é 'Baixa' | Temperatura >= 18°C e <= 26°C é 'Normal' | Temperatura > 26°C é 'Alta'
+# Temperatura < 18°C é 'Baixa' | Temperatura >= 18°C e <= 26°C é 'Normal' | Temperatura > 26°C é 'Alta'
 temperatura = float(input("Leitura da temperatura (°C): "))
 if temperatura < 18: 
     print("Baixa")
@@ -28,7 +28,7 @@ else:
 ### Exercício 3: Filtragem de Logs por Severidade
 # Você está analisando logs de uma aplicação e precisa filtrar mensagens 
 # com severidade 'ERROR'. Dado um registro de log em formato de dicionário 
-# como `log = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}`, 
+logs = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}
 # escreva um programa que imprima a mensagem se a severidade for 'ERROR'.
 # Resposta:
 pasta_erros = []
@@ -178,7 +178,7 @@ print(f"Dados coletados: {dados_coletados}.")
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
 # Resposta:
-Validador que solicita uma nota de satisfação do cliente de 1 a 5.
+#Validador que solicita uma nota de satisfação do cliente de 1 a 5.
 while True:
     entrada = input("Digite uma nota de 1 a 5: ").strip()
     if entrada.lstrip('-').isdigit():
