@@ -3,7 +3,6 @@
 # que todos os registros tenham valores positivos para `quantidade` e `preço`. 
 # Escreva um programa que verifique esses campos e imprima "Dados válidos" se ambos 
 # forem positivos ou "Dados inválidos" caso contrário.
-# Resposta:
 quantidade = int(input("Digite a quantidade do produto: "))
 preco = float(input("Digite o preço: R$"))
 if quantidade > 0 and preco > 0:
@@ -15,7 +14,6 @@ else:
 # Imagine que você está trabalhando com dados de sensores IoT. 
 # Os dados incluem medições de temperatura. Você precisa classificar cada leitura 
 # como 'Baixa', 'Normal' ou 'Alta'. Considerando que:
-# Resposta:
 # Temperatura < 18°C é 'Baixa' | Temperatura >= 18°C e <= 26°C é 'Normal' | Temperatura > 26°C é 'Alta'
 temperatura = float(input("Leitura da temperatura (°C): "))
 if temperatura < 18: 
@@ -30,7 +28,6 @@ else:
 # com severidade 'ERROR'. Dado um registro de log em formato de dicionário 
 logs = {'timestamp': '2021-06-23 10:00:00', 'level': 'ERROR', 'message': 'Falha na conexão'}
 # escreva um programa que imprima a mensagem se a severidade for 'ERROR'.
-# Resposta:
 pasta_erros = []
 pasta_avisos = []
 pasta_sucessos = [] # temos o log como dicionário acima, porém essa analise muitas vezes vem de uma lista e criamos as pastas para separar as ocorrências.
@@ -49,7 +46,6 @@ for log in logs:
 # você precisa garantir que cada usuário tenha idade entre 18 e 65 anos e tenha 
 # fornecido um email válido. Escreva um programa que valide essas condições 
 # e imprima "Dados de usuário válidos" ou o erro específico encontrado.
-# Resposta:
 nome, idade_texto, email = input("Digite nome, idade e e-mail (separados por espaço): ").split()
 idade = int(idade_texto)
 print("n\\--- Analisando Dados---")
@@ -67,7 +63,6 @@ else:
 # transações suspeitas. Uma transação é considerada suspeita se o valor for superior 
 # a R$ 10.000 ou se ocorrer fora do horário comercial (antes das 9h ou depois das 18h). 
 # Dada uma transação como `transacao = {'valor': 12000, 'hora': 20}`, verifique se ela é suspeita.
-# Resposta:
 transacao = {'valor': 12000, 'hora': 20}
 valor = transacao['valor']
 hora = transacao['hora']
@@ -78,7 +73,6 @@ else:
 
 ### Exercício 6. Contagem de Palavras em Textos
 # Objetivo:** Dado um texto, contar quantas vezes cada palavra única aparece nele.
-# Resposta: 
 texto_usuario = input("Digite o seu texto aqui: ")
 texto_minusculo = texto_usuario.lower()
 pontuacoes = ".,;:!?()-\"'"
@@ -96,7 +90,6 @@ print(contagem)
     
 ### Exercício 7. Normalização de Dados
 # Objetivo:** Normalizar uma lista de números para que fiquem na escala de 0 a 1.
-# Resposta:
 dados = [10, 20, 30, 40, 50]
 valor_min = min(dados)
 valor_max = max(dados)
@@ -109,7 +102,6 @@ print(f"Dados normalizados: {dados_normalizados}")
 
 ### Exercício 8. Filtragem de Dados Faltantes
 # Objetivo:** Dada uma lista de dicionários representando dados de usuários, filtrar aqueles que têm um campo específico faltando.
-# Resposta:
 usuarios = [
     {"nome": "Priscila", "email": "priscila@email.com"},
     {"nome": "Suami", "email": None}, 
@@ -129,7 +121,6 @@ print(f"Usuários com dados faltantes: {usuarios_dados_faltantes}.")
 
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
-# Resposta:
 numeros = range(1, 11)
 pares = []
 impares = []
@@ -142,7 +133,6 @@ print(f"Os número pares são: {pares}.")
 
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
-# Resposta:
 vendas = [
     {"produto": "Teclado", "categoria": "Eletrônicos", "preco": 150},
     {"produto": "Camiseta", "categoria": "Vestuário", "preco": 80},
@@ -164,7 +154,6 @@ print(faturamento_por_categoria)
 
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
-# Resposta:
 dados_coletados = []
 while True:
     entrada = input("Digite um dados (para encerrar digite 'sair): ")
@@ -177,7 +166,6 @@ print(f"Dados coletados: {dados_coletados}.")
 
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
-# Resposta:
 #Validador que solicita uma nota de satisfação do cliente de 1 a 5.
 while True:
     entrada = input("Digite uma nota de 1 a 5: ").strip()
@@ -193,7 +181,6 @@ while True:
    
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
-# Resposta:
 import time
 def obter_dados_da_api(pagina: int) -> list:
     banco_de_dados_da_api = {
@@ -219,7 +206,6 @@ print(f"Dados finais salvos: {todos_os_clientes}.")
 
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
-# Resposta:
 import random
 tentativas_max = 5
 tentativa = 1
@@ -236,7 +222,6 @@ else:
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
-# Resposta:
 leitura_sensores = [22.5, 23.1, 24.0, 21.8, 999, 25.2]
 posicao = 0 
 while posicao < len(leitura_sensores):
