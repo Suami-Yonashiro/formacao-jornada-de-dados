@@ -237,3 +237,13 @@
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
+# Resposta:
+leitura_sensores = [22.5, 23.1, 24.0, 21.8, 999, 25.2]
+posicao = 0 
+while posicao < len(leitura_sensores):
+    temperatura = leitura_sensores[posicao]
+    if temperatura == 999:
+        print(f"\n[ALERTA: Valor de parada ({temperatura}) encontrado no índice {posicao}! Interrompendo esteira...]")
+        break
+    print(f"Processando temperatura estável {temperatura}°C.")
+    posicao += 1              
