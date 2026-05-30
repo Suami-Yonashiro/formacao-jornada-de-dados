@@ -194,31 +194,46 @@
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
 # Resposta:
-import time
-def obter_dados_da_api(pagina: int) -> list:
-    banco_de_dados_da_api = {
-        1: [{"id": 1, "cliente": "Ana"}, {"id": 2, "cliente": "Bruno"}],
-        2: [{"id": 3, "cliente": "Carlos"}, {"id": 4, "cliente": "Daniela"}],
-        3: [{"id": 5, "cliente": "Eduardo"}, {"id": 6, "cliente": "Fernanda"}]
-    }
-    return banco_de_dados_da_api.get(pagina, [])
-pagina_atual = 1
-todos_os_clientes = []
-while True:
-    dados_da_pagina = obter_dados_da_api(pagina_atual)    
-    if len(dados_da_pagina) == 0:
-        print(f"\nFim da página encontrado. Nenhum dados na {pagina_atual}")
-        break
-    for registro in dados_da_pagina:
-        todos_os_clientes.append(registro)
-    time.sleep(0.5)
-    pagina_atual += 1
-print(f"Total de páginas lidas com dados: {pagina_atual - 1}.")
-print(f"Total de registros importados: {len(todos_os_clientes)}.")
-print(f"Dados finais salvos: {todos_os_clientes}.")
+# import time
+# def obter_dados_da_api(pagina: int) -> list:
+#     banco_de_dados_da_api = {
+#         1: [{"id": 1, "cliente": "Ana"}, {"id": 2, "cliente": "Bruno"}],
+#         2: [{"id": 3, "cliente": "Carlos"}, {"id": 4, "cliente": "Daniela"}],
+#         3: [{"id": 5, "cliente": "Eduardo"}, {"id": 6, "cliente": "Fernanda"}]
+#     }
+#     return banco_de_dados_da_api.get(pagina, [])
+# pagina_atual = 1
+# todos_os_clientes = []
+# while True:
+#     dados_da_pagina = obter_dados_da_api(pagina_atual)    
+#     if len(dados_da_pagina) == 0:
+#         print(f"\nFim da página encontrado. Nenhum dados na {pagina_atual}")
+#         break
+#     for registro in dados_da_pagina:
+#         todos_os_clientes.append(registro)
+#     time.sleep(0.5)
+#     pagina_atual += 1
+# print(f"Total de páginas lidas com dados: {pagina_atual - 1}.")
+# print(f"Total de registros importados: {len(todos_os_clientes)}.")
+# print(f"Dados finais salvos: {todos_os_clientes}.")
 
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
+# Resposta:
+# import random
+# tentativas_max = 5
+# tentativa = 1
+
+# while tentativa <= tentativas_max:
+#     print(f"Tentativa {tentativa} de {tentativas_max}.")
+#     sucesso = random.choices([True, False], weights=[15, 85])[0]
+#     if sucesso:
+#         print("Conexão bem-sucedida!")
+#         break
+#     print("Falha na conexão atual, tentando novamente!")
+#     tentativa += 1
+# else:
+#     print("Falha de conexão, após 5 tentativas seguidas!")
 
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
