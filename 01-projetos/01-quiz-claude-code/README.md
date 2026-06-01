@@ -14,19 +14,13 @@
 
 **[→ quiz-claude-code.vercel.app](https://quiz-claude-code.vercel.app)**
 
-> _Substitua o link acima pela URL gerada no Vercel após o deploy._
-
 **[→ quiz-claude-code local](http://localhost:3000/)**
-
-> _Endereço de servidor web rodando localmente no próprio computador. Para rodar o projeto de ser iniciado no terminal.
 
 ---
 
 ## 📸 Preview
 
 ![Screenshot do Quiz](assets/public_screenshot.png)
-
-> _Adicione um screenshot da aplicação em `public_screenshot.png` após rodar o projeto._
 
 ---
 
