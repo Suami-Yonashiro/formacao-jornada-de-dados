@@ -39,17 +39,20 @@
 
 # 5. Dada a lista `["maçã", "banana", "cereja"]` e o dicionário `{"maçã": 0.45, "banana": 0.30, "cereja": 0.65}`, calcule o preço total da lista de compras.
 # Resposta:
-lista_compras: list[str] = ["maçã", "banana", "cereja"]
-precos: dict[str, float] = {
-    "maçã": 0.45,
-    "banana": 0.30,
-    "cereja": 0.65
-}
-total: float = sum(precos[item] for item in lista_compras)
-print(f"O valor total da compra foi de R${total:.2f}.")
+# lista_compras: list[str] = ["maçã", "banana", "cereja"]
+# precos: dict[str, float] = {
+#     "maçã": 0.45,
+#     "banana": 0.30,
+#     "cereja": 0.65
+# }
+# total: float = sum(precos[item] for item in lista_compras)
+# print(f"O valor total da compra foi de R${total:.2f}.")
 
 # 6. Eliminação de Duplicatas: Dada uma lista de emails, remover todos os duplicados.
 # Resposta: 
-emails: list[str] = ["user@example.com", "admin@example.com", "user@example.com", "manager@example.com"]
-emails_unicos = list(set(emails))
-print(f"Segue a lista limpa, sem e-mails duplicados: \n{emails_unicos}.")
+# emails: list[str] = ["user@example.com", "admin@example.com", "user@example.com", "manager@example.com"]
+# emails_unicos = list(set(emails))
+# print(f"Segue a lista limpa, sem e-mails duplicados: \n{emails_unicos}.")
+
+# 7. Filtragem de Dados: Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
+# Respostas: 
