@@ -82,3 +82,7 @@ from typing import Dict, Any
 
 # 10. Divisão de Dados em Grupos: Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
 # Resposta:
+valores: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares: list[int] = [par for par in valores if par % 2 == 0]
+impares: list[int] = [impar for impar in valores if impar % 2 != 0 ]
+print(f"Da lista valores os números pares são: {pares} \ne os números impares são: {impares}.")
