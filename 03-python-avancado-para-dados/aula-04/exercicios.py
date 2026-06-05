@@ -47,3 +47,9 @@ precos: dict[str, float] = {
 }
 total: float = sum(precos[item] for item in lista_compras)
 print(f"O valor total da compra foi de R${total:.2f}.")
+
+# 6. Eliminação de Duplicatas: Dada uma lista de emails, remover todos os duplicados.
+# Resposta: 
+emails: list[str] = ["user@example.com", "admin@example.com", "user@example.com", "manager@example.com"]
+emails_unicos = list(set(emails))
+print(f"Segue a lista limpa, sem e-mails duplicados: \n{emails_unicos}.")
