@@ -56,3 +56,9 @@
 
 # 7. Filtragem de Dados: Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
 # Respostas: 
+idades: list[int] = [22, 15, 30, 17, 18]
+idades_validas: list[int] = [idade for idade in idades if idade >= 18]
+print(f"Idades permitidas: {idades_validas}.")
+
+# 8. Ordenação Personalizada: Dada uma lista de dicionários representando pessoas, ordená-las pelo nome.
+# Respostas:
