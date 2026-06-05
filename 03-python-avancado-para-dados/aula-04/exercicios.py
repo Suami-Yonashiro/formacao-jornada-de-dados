@@ -63,16 +63,22 @@ from typing import Dict, Any
 
 # 8. Ordenação Personalizada: Dada uma lista de dicionários representando pessoas, ordená-las pelo nome.
 # Resposta:
-pessoas = [
-    {"nome": "Alice", "idade": 30},
-    {"nome": "Bob", "idade": 25},
-    {"nome": "Carol", "idade": 20}
-]
-def ordenar_por_nome(lista_pessoas: list[Dict[str, Any]]) -> None:
-    """Ordenar uma lista de dicionários contendo dados pelo campo nome."""
-    lista_pessoas.sort(key=lambda pessoa: pessoa["nome"])
-ordenar_por_nome(pessoas)
-print(f"Dicionário ordenado por nome: \n{pessoas}.")
+# pessoas = [
+#     {"nome": "Alice", "idade": 30},
+#     {"nome": "Bob", "idade": 25},
+#     {"nome": "Carol", "idade": 20}
+# ]
+# def ordenar_por_nome(lista_pessoas: list[Dict[str, Any]]) -> None:
+#     """Ordenar uma lista de dicionários contendo dados pelo campo nome."""
+#     lista_pessoas.sort(key=lambda pessoa: pessoa["nome"])
+# ordenar_por_nome(pessoas)
+# print(f"Dicionário ordenado por nome: \n{pessoas}.")
 
 # 9. Agregação de Dados: Dado um conjunto de números, calcular a média.
+# Resposta:
+# numeros: list[int] = [10, 20, 30, 40, 50]
+# media: int = sum(numeros) / len(numeros)
+# print(f"A média dos números da lista é: {media}.")
+
+# 10. Divisão de Dados em Grupos: Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
 # Resposta:
