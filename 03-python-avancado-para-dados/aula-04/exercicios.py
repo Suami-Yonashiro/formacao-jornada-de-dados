@@ -26,13 +26,24 @@
 
 # 4. Escreva um programa que conta o número de ocorrências de cada caractere em uma string usando um dicionário.
 # Resposta: 
-def contar_caracteres(texto: str) -> dict:
-    contagem: dict = {}
-    for caractere in texto:
-        contagem[caractere] = contagem.get(caractere, 0) + 1
-    return contagem
-texto: str = (input("Digite um texto: "))
-resultado: dict[str, int] = contar_caracteres(texto)
-total_caracteres: int = len(texto)
-print(f"Contagem por caractere: {resultado}.")
-print(f"Contagem total de caracteres (incluindo espaços): {total_caracteres}.")
+# def contar_caracteres(texto: str) -> dict:
+#     contagem: dict = {}
+#     for caractere in texto:
+#         contagem[caractere] = contagem.get(caractere, 0) + 1
+#     return contagem
+# texto: str = (input("Digite um texto: "))
+# resultado: dict[str, int] = contar_caracteres(texto)
+# total_caracteres: int = len(texto)
+# print(f"Contagem por caractere: {resultado}.")
+# print(f"Contagem total de caracteres (incluindo espaços): {total_caracteres}.")
+
+# 5. Dada a lista `["maçã", "banana", "cereja"]` e o dicionário `{"maçã": 0.45, "banana": 0.30, "cereja": 0.65}`, calcule o preço total da lista de compras.
+# Resposta:
+lista_compras: list[str] = ["maçã", "banana", "cereja"]
+precos: dict[str, float] = {
+    "maçã": 0.45,
+    "banana": 0.30,
+    "cereja": 0.65
+}
+total: float = sum(precos[item] for item in lista_compras)
+print(f"O valor total da compra foi de R${total:.2f}.")
