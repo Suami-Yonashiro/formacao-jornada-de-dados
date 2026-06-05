@@ -1,5 +1,7 @@
 ### Exercícios de Listas e Dicionários resolvidos.
 
+from typing import Dict, Any
+
 # 1. Crie uma lista com os números de 1 a 10 e use um loop para imprimir cada número elevado ao quadrado.
 # Reposta:
 # numeros: list[int] = list(range(0, 11))
@@ -15,7 +17,6 @@
 # print(linguagens)
 
 # 3. Informações de um livro. Crie um dicionário para armazenar informações de um livro. 
-# from typing import Dict, Any
 # livro: dict[str, Any] = {
 #     "Titulo": "Game of Thrones A Guerra dos Tronos",
 #     "Autor": "George R. R. Martin",
@@ -55,10 +56,23 @@
 # print(f"Segue a lista limpa, sem e-mails duplicados: \n{emails_unicos}.")
 
 # 7. Filtragem de Dados: Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
-# Respostas: 
-idades: list[int] = [22, 15, 30, 17, 18]
-idades_validas: list[int] = [idade for idade in idades if idade >= 18]
-print(f"Idades permitidas: {idades_validas}.")
+# Resposta: 
+# idades: list[int] = [22, 15, 30, 17, 18]
+# idades_validas: list[int] = [idade for idade in idades if idade >= 18]
+# print(f"Idades permitidas: {idades_validas}.")
 
 # 8. Ordenação Personalizada: Dada uma lista de dicionários representando pessoas, ordená-las pelo nome.
-# Respostas:
+# Resposta:
+pessoas = [
+    {"nome": "Alice", "idade": 30},
+    {"nome": "Bob", "idade": 25},
+    {"nome": "Carol", "idade": 20}
+]
+def ordenar_por_nome(lista_pessoas: list[Dict[str, Any]]) -> None:
+    """Ordenar uma lista de dicionários contendo dados pelo campo nome."""
+    lista_pessoas.sort(key=lambda pessoa: pessoa["nome"])
+ordenar_por_nome(pessoas)
+print(f"Dicionário ordenado por nome: \n{pessoas}.")
+
+# 9. Agregação de Dados: Dado um conjunto de números, calcular a média.
+# Resposta:
