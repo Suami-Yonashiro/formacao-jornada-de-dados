@@ -82,7 +82,26 @@ from typing import Dict, Any
 
 # 10. Divisão de Dados em Grupos: Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
 # Resposta:
-valores: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-pares: list[int] = [par for par in valores if par % 2 == 0]
-impares: list[int] = [impar for impar in valores if impar % 2 != 0 ]
-print(f"Da lista valores os números pares são: {pares} \ne os números impares são: {impares}.")
+# valores: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# pares: list[int] = [par for par in valores if par % 2 == 0]
+# impares: list[int] = [impar for impar in valores if impar % 2 != 0 ]
+# print(f"Da lista valores os números pares são: {pares} \ne os números impares são: {impares}.")
+
+# 11. Atualização de Dados: Dada uma lista de dicionários representando produtos, atualizar o preço de um produto específico.
+# Atualizar o preço do produto com id 2 para 90
+# Resposta: 
+# produtos: list[dict[str, Any]] = [
+#     {"id": 1, "nome": "Teclado", "preço": 100},
+#     {"id": 2, "nome": "Mouse", "preço": 80},
+#     {"id": 3, "nome": "Monitor", "preço": 300}
+# ]
+# for produto in produtos:
+#     if produto["id"] == 2:
+#         produto["preço"] = 90 
+#         break
+# print(produtos)
+
+# 12. Fusão de Dicionários: Dados dois dicionários, fundi-los em um único dicionário.
+# Resposta: 
+dicionario1 = {"a": 1, "b": 2}
+dicionario2 = {"c": 3, "d": 4}
