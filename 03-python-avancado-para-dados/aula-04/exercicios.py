@@ -125,4 +125,12 @@ from typing import Dict, Any
 # 14. Extração de Chaves e Valores:
 # Dado um dicionário, criar listas separadas para suas chaves e valores.
 # Resposta: 
-dicionario = {"a": 1, "b": 2, "c": 3}
+# dicionario: dict[str, Any] = {"a": 1, "b": 2, "c": 3}
+# chaves = list(dicionario.keys())
+# valores = list(dicionario.values())
+# print(f"As chaves deste dicionário são: {chaves} e os valores: {valores}.")
+
+# 15. Contagem de Frequência de Itens:
+# Dada uma string, contar a frequência de cada caractere usando um dicionário.
+# Resposta: 
+texto = "engenharia de dados"
