@@ -49,19 +49,22 @@ from typing import Dict, Any
 # total: float = sum(precos[item] for item in lista_compras)
 # print(f"O valor total da compra foi de R${total:.2f}.")
 
-# 6. Eliminação de Duplicatas: Dada uma lista de emails, remover todos os duplicados.
+# 6. Eliminação de Duplicatas: 
+# Dada uma lista de emails, remover todos os duplicados.
 # Resposta: 
 # emails: list[str] = ["user@example.com", "admin@example.com", "user@example.com", "manager@example.com"]
 # emails_unicos = list(set(emails))
 # print(f"Segue a lista limpa, sem e-mails duplicados: \n{emails_unicos}.")
 
-# 7. Filtragem de Dados: Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
+# 7. Filtragem de Dados: 
+# Dada uma lista de idades, filtrar apenas aquelas que são maiores ou iguais a 18.
 # Resposta: 
 # idades: list[int] = [22, 15, 30, 17, 18]
 # idades_validas: list[int] = [idade for idade in idades if idade >= 18]
 # print(f"Idades permitidas: {idades_validas}.")
 
-# 8. Ordenação Personalizada: Dada uma lista de dicionários representando pessoas, ordená-las pelo nome.
+# 8. Ordenação Personalizada: 
+# Dada uma lista de dicionários representando pessoas, ordená-las pelo nome.
 # Resposta:
 # pessoas = [
 #     {"nome": "Alice", "idade": 30},
@@ -74,20 +77,23 @@ from typing import Dict, Any
 # ordenar_por_nome(pessoas)
 # print(f"Dicionário ordenado por nome: \n{pessoas}.")
 
-# 9. Agregação de Dados: Dado um conjunto de números, calcular a média.
+# 9. Agregação de Dados: 
+# Dado um conjunto de números, calcular a média.
 # Resposta:
 # numeros: list[int] = [10, 20, 30, 40, 50]
 # media: int = sum(numeros) / len(numeros)
 # print(f"A média dos números da lista é: {media}.")
 
-# 10. Divisão de Dados em Grupos: Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
+# 10. Divisão de Dados em Grupos: 
+# Dada uma lista de valores, dividir em duas listas: uma para valores pares e outra para ímpares.
 # Resposta:
 # valores: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # pares: list[int] = [par for par in valores if par % 2 == 0]
 # impares: list[int] = [impar for impar in valores if impar % 2 != 0 ]
 # print(f"Da lista valores os números pares são: {pares} \ne os números impares são: {impares}.")
 
-# 11. Atualização de Dados: Dada uma lista de dicionários representando produtos, atualizar o preço de um produto específico.
+# 11. Atualização de Dados: 
+# Dada uma lista de dicionários representando produtos, atualizar o preço de um produto específico.
 # Atualizar o preço do produto com id 2 para 90
 # Resposta: 
 # produtos: list[dict[str, Any]] = [
@@ -101,7 +107,15 @@ from typing import Dict, Any
 #         break
 # print(produtos)
 
-# 12. Fusão de Dicionários: Dados dois dicionários, fundi-los em um único dicionário.
+# 12. Fusão de Dicionários: 
+# Dados dois dicionários, fundi-los em um único dicionário.
 # Resposta: 
-dicionario1 = {"a": 1, "b": 2}
-dicionario2 = {"c": 3, "d": 4}
+# dicionario1: dict[str, Any] = {"a": 1, "b": 2}
+# dicionario2: dict[str, Any] = {"c": 3, "d": 4}
+# dicionario_unico = dicionario1 | dicionario2
+# print(dicionario_unico)
+
+# 13. Filtragem de Dados em Dicionário: 
+# Dado um dicionário de estoque de produtos, filtrar aqueles com quantidade maior que 0.
+# Resposta:
+estoque = {"Teclado": 10, "Mouse": 0, "Monitor": 3, "CPU": 0}
