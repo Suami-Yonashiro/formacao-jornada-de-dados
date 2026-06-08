@@ -118,4 +118,11 @@ from typing import Dict, Any
 # 13. Filtragem de Dados em Dicionário: 
 # Dado um dicionário de estoque de produtos, filtrar aqueles com quantidade maior que 0.
 # Resposta:
-estoque = {"Teclado": 10, "Mouse": 0, "Monitor": 3, "CPU": 0}
+# estoque: dict[str, Any] = {"Teclado": 10, "Mouse": 0, "Monitor": 3, "CPU": 0}
+# estoque_positivo = {produto: quantidade for produto, quantidade in estoque.items() if quantidade > 0}
+# print(estoque_positivo)
+
+# 14. Extração de Chaves e Valores:
+# Dado um dicionário, criar listas separadas para suas chaves e valores.
+# Resposta: 
+dicionario = {"a": 1, "b": 2, "c": 3}
