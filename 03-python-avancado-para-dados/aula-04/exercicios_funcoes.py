@@ -59,14 +59,32 @@
 
 # Ou
 
-palavra: str = input("Digite uma palavra para recebe-la invertida: ")
+# palavra: str = input("Digite uma palavra para recebe-la invertida: ")
 
 
-def palavra_invertida(palavra: str) -> str:
-    return palavra[::-1]
+# def palavra_invertida(palavra: str) -> str:
+#     return palavra[::-1]
 
 
-print(f"O resultado da palavra {palavra} é {palavra_invertida(palavra)}.")
+# print(f"O resultado da palavra {palavra} é {palavra_invertida(palavra)}.")
 
 # 19. Implemente uma função que receba dois argumentos: uma lista de números e um número. A função deve retornar todas as combinações de pares na lista que somem ao número dado.
+# Resposta:
+# numeros: list[int] = [2, 4, 3, 5, 7]
+# alvo: int = int(input("Digite o seu número alvo: "))
+
+
+# def encontrar_pares(numeros: list[int], alvo: int) -> list[tuple[int, int]]:
+#     pares_encontrados = []
+
+#     for n1 in range(len(numeros)):
+#         for n2 in range(n1 + 1, len(numeros)):
+#             if numeros[n1] + numeros[n2] == alvo:
+#                 pares_encontrados.append((numeros[n1], numeros[n2]))
+
+#     return pares_encontrados
+
+
+# print(f"As combinações encontradas são:", encontrar_pares(numeros, alvo))
 # 20. Escreva uma função que receba um dicionário e retorne uma lista de chaves ordenadas.
+# Resposta:
