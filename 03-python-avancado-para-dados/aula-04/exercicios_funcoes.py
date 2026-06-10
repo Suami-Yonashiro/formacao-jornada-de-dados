@@ -43,6 +43,30 @@
 
 # 18. Desenvolva uma função que receba uma string como argumento e retorne essa string revertida.
 # Resposta:
+# palavra: str = input("Digite uma palavra para recebe-la invertida: ")
+
+
+# def palavra_invertida(palavra: str) -> str:
+#     resultado_invertido = ""
+
+#     for letra in palavra:
+#         resultado_invertido = letra + resultado_invertido
+
+#     return resultado_invertido
+
+
+# print(f"O resultado da palavra {palavra} é {palavra_invertida(palavra)}.")
+
+# Ou
+
+palavra: str = input("Digite uma palavra para recebe-la invertida: ")
+
+
+def palavra_invertida(palavra: str) -> str:
+    return palavra[::-1]
+
+
+print(f"O resultado da palavra {palavra} é {palavra_invertida(palavra)}.")
 
 # 19. Implemente uma função que receba dois argumentos: uma lista de números e um número. A função deve retornar todas as combinações de pares na lista que somem ao número dado.
 # 20. Escreva uma função que receba um dicionário e retorne uma lista de chaves ordenadas.
