@@ -29,3 +29,4 @@ known_third_party = []
 
 [tool.taskipy.tasks]
 format = "isort . && blue ."
+test = "poetry run pytest -v"
