@@ -1,0 +1,18 @@
+site_name: 02-workshop-estrutura
+theme:
+  name: material # or other theme
+  palette:
+    primary: blue
+  language: pt
+
+repo_name: "Suami-Yonashiro/formacao-jornada-de-dados/tree/01-projetos/02-workshop-estrutura"
+repo_url: "https://github.com/Suami-Yonashiro/formacao-jornada-de-dados/tree/main/01-projetos/02-workshop-estrutura"
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
