@@ -2,6 +2,8 @@
 
 # Como Estruturar um Projeto de Engenharia de Dados
 
+<br>
+
 [![Projeto](https://img.shields.io/badge/Projeto-Foundations-blue?style=for-the-badge)](https://suajornadadedados.com.br/)
 [![Python](https://img.shields.io/badge/Python-3.11.3-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Poetry](https://img.shields.io/badge/Poetry-Dependências-60A5FA?style=for-the-badge&logo=poetry&logoColor=white)](https://python-poetry.org/)
