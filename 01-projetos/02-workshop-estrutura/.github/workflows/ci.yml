@@ -1,18 +1,23 @@
-name: CI Workflow
+name: CI/CD Workflow
 
-on: [pull_request]
+# 1. Agora ele roda tanto na Main quanto em Pull Requests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Python 3.11.3
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.11.3
+          python-version: '3.11'
 
       - name: Install poetry
         run: |
@@ -23,3 +28,7 @@ jobs:
 
       - name: Run pytest
         run: poetry run pytest
+
+      # 2. ESSA É A MÁGICA: Comando que controi e publica a documentação
+      - name: Deploy MkDocs Documentation
+        run: poetry run mkdocs gh-deploy --force
