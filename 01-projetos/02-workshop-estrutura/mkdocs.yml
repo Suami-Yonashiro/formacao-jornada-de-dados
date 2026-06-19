@@ -9,10 +9,20 @@ repo_name: "Suami-Yonashiro/formacao-jornada-de-dados/tree/01-projetos/02-worksh
 repo_url: "https://github.com/Suami-Yonashiro/formacao-jornada-de-dados/tree/main/01-projetos/02-workshop-estrutura"
 
 markdown_extensions:
-  - pymdownx.superfences
+  - admonition
   - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 plugins:
   - search
   - mkdocstrings:
       default_handler: python
+      handlers:
+        python:
+          paths: [app]
+          options:
+            docstring_style: google
