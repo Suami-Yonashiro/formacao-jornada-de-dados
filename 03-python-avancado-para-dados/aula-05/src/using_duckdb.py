@@ -31,6 +31,7 @@ if __name__ == "__main__":
         exit()
         
     # Armazena o resultado na variável em vez de apenas printar na tela
+    # 1M 0.55 segundos
     df_resultado = criar_relatorio_duckdb(FILENAME)
     
     # Exibe os dados de forma profissional
