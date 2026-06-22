@@ -1,11 +1,4 @@
-"""Processador Paralelo para o Desafio de 1 Bilhão de Linhas.
-
-Este script foi projetado para processar de forma eficiente arquivos de texto
-de grande volume (na ordem de bilhões de linhas) contendo medições de
-estações meteorológicas. A tarefa consiste em calcular o valor mínimo,
-médio e máximo das medições para cada estação.
-
-Metodologia:
+""" Metodologia:
   1. Leitura em Chunks: O arquivo é lido em pedaços (chunks) para não
      sobrecarregar a memória RAM, permitindo o processamento de arquivos
      maiores que a memória disponível.
@@ -28,24 +21,21 @@ Otimizações Chave:
 
 Uso:
   - Configure as constantes `FILENAME` e `CHUNKSIZE` conforme necessário.
-  - Execute o script diretamente a partir de um terminal: `python seu_script.py`
-
-Dependências:
-  - pandas
+  - Execute o script diretamente a partir de um terminal: `python seu_scri
 """
 
 import pandas as pd
 from multiprocessing import Pool, cpu_count
 import time
+from pathlib import Path
 
 # --- Constantes de Configuração ---
+# Define o caminho para o arquivo de dados
+FILENAME = Path("data/measurements.txt")
 
-# Define o caminho para o arquivo de dados.
-FILENAME = "One-Billion-Row-Challenge-Python/data/measurements.txt"
-
-# Define o tamanho de cada "pedaço" do arquivo a ser lido na memória.
-# Ajuste este valor dependendo da memória RAM disponível.
-CHUNKSIZE = 100_000_000
+# Define o tamanho de cada "pedaço" do arquivo a ser lido na memória
+# Reduzir para 1 milhão para evitar que múltiplos processos estourem a RAM do seu PC de uma vez
+CHUNKSIZE = 1_000_000
 
 # Otimização: Especificar os tipos de dados acelera a leitura e economiza memória.
 COLUMN_TYPES = {
@@ -54,32 +44,41 @@ COLUMN_TYPES = {
 }
 
 def process_chunk(chunk: pd.DataFrame) -> pd.DataFrame:
-    """Processa um único chunk de dados para agregação parcial."""
-    # Agregação crucial: calculamos 'sum' e 'count' para podermos derivar a média correta posteriormente.
-    # ADICIONADO `observed=True` PARA REMOVER O FUTUTREWARNING E ADOTAR O COMPORTAMENTO MAIS MODERNO E EFICIENTE.
+    """Processa um único chunk de dados para agregação estatística parcial."""
+    # Agregação crucial: calcular 'sum' e 'count' para podermos derivar a média correta posteriormente
+    # Adicionado `observed=True` para remover o FUTUTREWARNING e adotar o comportamento mais moderno e eficiente
     return chunk.groupby('station', observed=True)['measure'].agg(['min', 'max', 'sum', 'count']).reset_index()
 
-def process_file_in_parallel(filename: str, chunksize: int) -> pd.DataFrame:
-    """Orquestra a leitura e o processamento paralelo do arquivo."""
-    print(f"Iniciando o processamento com {cpu_count()} processos...")
+def process_file_in_parallel(filename: Path, chunksize: int) -> pd.DataFrame:
+    """Orquestra a leitura concorrente do arquivo e unifica as agregações.
+    
+    Args:
+        filename (Path): Objeto Path apontando para o arquivo de medições.
+        chunksize (int): Quantidade de linhas por bloco processado.
+        
+    Returns:
+        pd.DataFrame: DataFrame final ordenado contendo as estatísticas globais.
+    """
+    print(f"Iniciando o processamento paralelo com {cpu_count()} núcleos de CPU...")
 
     with Pool(cpu_count()) as pool:
+      # CORREÇÃO: Adicionado encoding="utf-8" para evitar falhas no Windows
         with pd.read_csv(
             filename,
             sep=';',
             header=None,
             names=['station', 'measure'],
             chunksize=chunksize,
-            dtype=COLUMN_TYPES
+            dtype=COLUMN_TYPES,
+            encoding="utf-8"
         ) as reader:
             intermediate_results = list(pool.imap_unordered(process_chunk, reader))
 
-    print("Agrupando os resultados finais de todos os processos...")
-    
+    print("Agrupando e consolidando os resultados finais...")
     final_df = pd.concat(intermediate_results, ignore_index=True)
     
-    # Na agregação final, usamos `observed=False` para garantir que
-    # todas as categorias, mesmo que ausentes em alguns chunks, sejam consideradas.
+    # Na agregação final, usamos `observed=False` para garantir que todas as categorias,
+    # mesmo que ausentes em alguns chunks, sejam consideradas.
     # No entanto, como concatenamos tudo antes, o comportamento é o mesmo e não gera warning.
     final_aggregated = final_df.groupby('station', observed=False).agg(
         min_measure=('min', 'min'),
@@ -91,24 +90,23 @@ def process_file_in_parallel(filename: str, chunksize: int) -> pd.DataFrame:
     final_aggregated['mean_measure'] = final_aggregated['total_sum'] / final_aggregated['total_count']
     
     result_df = final_aggregated[['station', 'min_measure', 'mean_measure', 'max_measure']]
-    result_df = result_df.sort_values('station')
-    
-    return result_df
+    return result_df.sort_values('station')
 
 # --- Ponto de Entrada do Script ---
 if __name__ == "__main__":
     
-    print("Iniciando a execução do script...")
+    # 1M 1.05 segundos
+    print("Iniciando a execução do script com Pandas...")
     start_time = time.time()
     
+    # Executa apenas se o arquivo existir para evitar crashes feios
+    if not FILENAME.exists():
+      print(f"Erro: O arquivo {FILENAME} não foi localizado. Certifique-se de gerá-lo primeiro.")
+      exit()
+      
     final_dataframe = process_file_in_parallel(FILENAME, CHUNKSIZE)
-    
     took = time.time() - start_time
     
     print("\n--- Processamento concluído! ---")
-    print("Cabeçalho do resultado:")
     print(final_dataframe.head())
-    print("...")
-    print("Final do resultado:")
-    print(final_dataframe.tail())
-    print(f"\nPandas Took: {took:.2f} segundos")
+    print(f"\nPandas paralelizado levou: {took:.2f} segundos.")
