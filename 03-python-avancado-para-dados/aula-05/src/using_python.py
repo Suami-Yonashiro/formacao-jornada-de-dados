@@ -2,52 +2,70 @@ from csv import reader
 from collections import defaultdict, Counter
 from tqdm import tqdm  # barra de progresso
 import time
+from pathlib import Path
 
-NUMERO_DE_LINHAS = 1_000_000_000
+# 1M como padrão seguro para testes locais rápidos
+NUMERO_DE_LINHAS = 1_000_000
 
-def processar_temperaturas(path_do_csv):
-    # utilizando infinito positivo e negativo para comparar
-    minimas = defaultdict(lambda: float('inf'))
-    maximas = defaultdict(lambda: float('-inf'))
-    somas = defaultdict(float)
-    medicoes = Counter()
+def processar_temperaturas(path_do_txt: Path) -> dict:
+    """Processa dados meteorológicos em streaming exibindo uma barra de progresso.
+    
+    Lê um arquivo CSV linha por linha e computa de forma otimizada os valores mínimo, 
+    máximo e a média de temperatura para cada estação meteorológica, utilizando a 
+    biblioteca tqdm para feedback visual de progresso.
 
-    with open(path_do_csv, 'r') as file:
+    Args:
+        path_do_txt (Path): Caminho para o arquivo contendo os dados.
+
+    Returns:
+        dict: Dicionário ordenado com as estatísticas formatadas por estação.
+    """
+    # Centralizado em uma única estrutura para evitar múltiplos lookups na memória
+    estatisticas = defaultdict(lambda: {"min": float('inf'), "max": float('-inf'), "soma": 0.0, "qtd": 0})
+
+    with open(path_do_txt, 'r', encoding="utf-8") as file:
         _reader = reader(file, delimiter=';')
-        # usando tqdm diretamente no iterador, isso mostrará a porcentagem de conclusão.
+        # tqdm encapsula o iterador para renderizar a barra de progresso
         for row in tqdm(_reader, total=NUMERO_DE_LINHAS, desc="Processando"):
             nome_da_station, temperatura = str(row[0]), float(row[1])
-            medicoes.update([nome_da_station])
-            minimas[nome_da_station] = min(minimas[nome_da_station], temperatura)
-            maximas[nome_da_station] = max(maximas[nome_da_station], temperatura)
-            somas[nome_da_station] += temperatura
-
+            
+            stats = estatisticas[nome_da_station]
+            
+            # Comparações diretas via if são ligeiramente mais rápidas em loops massivos do que min()/max()
+            if temperatura < stats["min"]:
+                stats["min"] = temperatura
+            if temperatura > stats["max"]:
+                stats["max"] = temperatura
+                
+            stats["soma"] += temperatura
+            stats["qtd"] += 1
+            
     print("Dados carregados. Calculando estatísticas...")
 
-    # calculando min, média e max para cada estação
+    # Calculando min, média e max para cada estação
     results = {}
-    for station, qtd_medicoes in medicoes.items():
-        mean_temp = somas[station] / qtd_medicoes
-        results[station] = (minimas[station], mean_temp, maximas[station])
+    for station, stats in estatisticas.items():
+        mean_temp = stats["soma"] / stats["qtd"]
+        results[station] = (stats["min"], mean_temp, stats["max"])
 
     print("Estatística calculada. Ordenando...")
-    # ordenando os resultados pelo nome da estação
+    # Ordena os resultados pelo nome da estação
     sorted_results = dict(sorted(results.items()))
 
-    # formatando os resultados para exibição
-    formatted_results = {station: f"{min_temp:.1f}/{mean_temp:.1f}/{max_temp:.1f}"
-                         for station, (min_temp, mean_temp, max_temp) in sorted_results.items()}
-
-    return formatted_results
+    # Formata os resultados para exibição
+    return {station: f"{min_temp:.1f}/{mean_temp:.1f}/{max_temp:.1f}"
+            for station, (min_temp, mean_temp, max_temp) in sorted_results.items()}
 
 
 if __name__ == "__main__":
-    path_do_csv = "data/measurements.txt"
+    
+    # 1M 1.10 segundos
+    path_do_txt = Path("data/measurements.txt")
 
     print("Iniciando o processamento do arquivo.")
     start_time = time.time()  # Tempo de início
 
-    resultados = processar_temperaturas(path_do_csv)
+    resultados = processar_temperaturas(path_do_txt)
 
     end_time = time.time()  # Tempo de término
 

@@ -1,53 +1,63 @@
 from csv import reader
 from collections import defaultdict
 import time
-
 from pathlib import Path
 
 def processar_temperaturas(path_do_txt: Path):
+    """Processar um arquivo de temperaturas acumulando estatísticas por estação.
+    
+    Essa função lê um arquivo de texto contendo registros de estações meteorológicas
+    e suas respectivas temperaturas. Ela utilizar uma abordagem de streaming para 
+    calcular os valores mínimo, máximo e média de cada estação em tempo real, 
+    garantindo baixo consumo de memória RAM. 
+
+    Args:
+        path_do_txt (Path): O caminho do objeto Path que aponta para o arquivo
+        de medições (ex. 'data/measurements.text').
+
+    Returns:
+        _type_: dict: Um dicionário ordenado alfabeticamente onde as chaves são
+        nomes das estações e os valores strings formatadas como 'mínimo/média/máximo'.
+        Exemplo: {'Lisboa': '12.4/22.1/34.0'}
+        
+    Raises:
+        FileNotFoundError: Se o arquivo no caminho especificado não for encontrado. 
+    """
     print("Iniciando o processamento do arquivo.")
     start_time = time.time()  # Tempo de início
-
-    temperatura_por_station = defaultdict(list)
-
-    """
-        Exemplo de como vai ficar a variável temperatura_por_station
-        temperatura_por_station = {
-            'Hamburg': [12.0],
-            'Bulawayo': [8.9],
-            'Palembang': [38.8],
-            'St. John\'s': [15.2],
-            'Cracow': [12.6],
-            'Bridgetown': [26.9],
-            'Istanbul': [6.2, 23.0], # Note que Istanbul tem duas entradas
-            'Roseau': [34.4],
-            'Conakry': [31.2],
-        }
-        O uso de defaultdict do módulo collections é uma escolha conveniente 
-        Sem o defaultdict, o código para adicionar uma temperatura iria parecer com isso:
-        if nome_da_station not in temperatura_por_station:
-            temperatura_por_station[nome_da_station] = []
-        temperatura_por_station[nome_da_station].append(temperatura)
-        Com defaultdict, isso é simplificado para:
-        temperatura_por_station[nome_da_station].append(temperatura)
-    """
+    
+    # ALTERAÇÃO 1: O dicionário guarda um dicionário interno com o "estado" da cidade
+    # Em vez de uma lista gigante de números, guardamos apenas o resumo.
+    estatisticas_por_station = defaultdict(lambda: {"min": float('inf'), "max": float('-inf'), "soma": 0.0, "qtd": 0})
 
     with open(path_do_txt, 'r', encoding="utf-8") as file:
         _reader = reader(file, delimiter=';')
         for row in _reader:
             nome_da_station, temperatura = str(row[0]), float(row[1])
-            temperatura_por_station[nome_da_station].append(temperatura)
+            
+            # ALTERAÇÃO 2: Atualizamos os valores EM TEMPO REAL enquanto lemos a linha
+            stats = estatisticas_por_station[nome_da_station]
+            
+            if temperatura < stats["min"]:
+                stats["min"] = temperatura
+            if temperatura > stats["max"]:
+                stats["max"] = temperatura
+                
+            stats["soma"] += temperatura
+            stats["qtd"] += 1
 
-    print("Dados carregados. Calculando estatísticas...")
+    print("Dados carregados. Calculando médias finais...")
 
     # Dicionário para armazenar os resultados calculados
     results = {}
+    
+    # ALTERAÇÃO 3: O laço de cálculo ficou mais leve e rápido
+    for station, stats in estatisticas_por_station.items():
+        min_temp = stats["min"]
+        max_temp = stats["max"]
+        # A média é calculada dividindo a soma acumulada pela quantidade acumulada
+        mean_temp = stats["soma"] / stats["qtd"]
 
-    # Calculando min, média e max para cada estação
-    for station, temperatures in temperatura_por_station.items():
-        min_temp = min(temperatures)
-        mean_temp = sum(temperatures) / len(temperatures)
-        max_temp = max(temperatures)
         results[station] = (min_temp, mean_temp, max_temp)
 
     print("Estatística calculada. Ordenando...")
@@ -65,8 +75,6 @@ def processar_temperaturas(path_do_txt: Path):
 # Substitua "data/measurements10M.txt" pelo caminho correto do seu arquivo
 if __name__ == "__main__":
 
-    # 1M 0.38 segundos
-    # 10M 3.96 segundos.
+    # 1M 0.88 segundos
     path_do_txt: Path = Path("data/measurements.txt")
-    # 100M > 5 minutos.
     resultados = processar_temperaturas(path_do_txt)
