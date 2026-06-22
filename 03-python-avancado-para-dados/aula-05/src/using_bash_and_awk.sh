@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # --- DOCUMENTAÇÃO DIDÁTICA --- 
-# Script em Bash utilizando AWK e Pipe Viewer (pv)
-# Objetivo: Processar dados streaming exibindo velocidade e progresso reais.
+# Script em Bash adaptado para windows
+# Objetivo: Medir o tempo de processamento em streaming sem dependências externas.
 
 # 1. Validação do arquivo.
 if [ ! -f data/measurements.txt ]; then
@@ -17,17 +17,13 @@ else
     QTD="$1"
 fi
 
-echo "Iniciando o pipeline. Processando $QTD linhas..."
+echo "Iniciando o pipeline. Processando $QTD linhas com AWK..."
 
-# 3. O pipeline de execução com monitoramento visual
-# Explicação das flags do pv:
-#   -p: Mostra a barra de progresso (progress bar)
-#   -e: Mostra o tempo estimado de término (eta)
-#   -t: Mostra o tempo decorrido (tima)
-#   -l: Conta por LINHAS em vez de contar por bytes
-#   -s: Informa ao pv o tamanho total esperado ($QTD) para ele saber calcular a porcentagem.
+# Captura o timestamp de início em nanosegundos.
+START_TIME=$(data +%s.%N)
 
-head -n $QTD data/measurements.txt | pv -p -e -t -l -s $QTD | awk -F ";" '
+# 3. Pipeline corrigido: 'pv' removido para rodar nativamente no Windows.
+head -n $QTD data/measurements.txt | awk -F ";" '
 {
 	# Se a estação ainda não foi registrada, inicializa os limites
 	if (!($1 in cnts)){
@@ -49,4 +45,13 @@ END {
 	}
 }' | sort
 
+# Captura o timestamp de término
+END_TIME=$(data +%s.%N)
+
+# Calcula a diferença usando o utilitário 'awk' (já que o Bash não faz conta com decimais nativamente).
+# 1M 0.00 segundos
+TEMPO_DECORRIDO=$(awk "BEGIN {print $END_TIME - $START_TIME}")
+
+echo "----------------------------------------"
 echo "Processamento concluído!"
+printf "Bash/AWK levou: %.2f segundos\n" $TEMPO_DECORRIDO
