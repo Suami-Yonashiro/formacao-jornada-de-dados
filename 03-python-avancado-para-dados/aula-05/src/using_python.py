@@ -58,8 +58,6 @@ def processar_temperaturas(path_do_txt: Path) -> dict:
 
 
 if __name__ == "__main__":
-    
-    # 1M 1.10 segundos
     path_do_txt = Path("data/measurements.txt")
 
     print("Iniciando o processamento do arquivo.")
@@ -73,3 +71,8 @@ if __name__ == "__main__":
         print(station, metrics, sep=': ')
 
     print(f"\nProcessamento concluído em {end_time - start_time:.2f} segundos.")
+    
+# Resultados:
+# 1 milhão 1.10 segundos
+# 10 milhões 12.39 segundos
+# 100 milhões 218.75 segundos

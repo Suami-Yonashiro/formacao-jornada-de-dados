@@ -41,7 +41,6 @@ def criar_dataframe_polars(path_do_txt: Path):
     )
 
 if __name__ == "__main__":
-    # 1M 0.11 segundos
     print("Iniciando a execução do script com Polars...") 
     start_time = time.time()
     
@@ -55,3 +54,8 @@ if __name__ == "__main__":
     print("\n--- Resultados Finais (Polars) ---")
     print(df.head())
     print(f"\nPolars concluído em: {took:.2f} segundos.")
+    
+# Resultados:
+# 1 milhão 0.11 segundos
+# 10 milhões 0.64 segundos
+# 100 milhões 8.61 segundos

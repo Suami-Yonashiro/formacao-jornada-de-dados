@@ -41,7 +41,6 @@ def criar_dataframe_dask(path_do_txt: Path):
     return grouped_df
 
 if __name__ == "__main__":
-    # 1M 0.55 segundos
     print("Iniciando a execução do script com Dask...")
     start_time = time.time()
     
@@ -62,3 +61,8 @@ if __name__ == "__main__":
     print("\n--- Resultados Finais (Dask) ---")
     print(result_df.head())
     print(f"\nDask otimizado levou: {took:.2f} segundos.")
+    
+# Resultados:
+# 1 milhão 0.55 segundos
+# 10 milhões 3.71 segundos
+# 100 milhões 32.50 segundos

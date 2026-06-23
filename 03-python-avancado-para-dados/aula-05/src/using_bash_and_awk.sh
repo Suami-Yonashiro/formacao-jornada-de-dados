@@ -20,7 +20,7 @@ fi
 echo "Iniciando o pipeline. Processando $QTD linhas com AWK..."
 
 # Captura o timestamp de início em nanosegundos.
-START_TIME=$(data +%s.%N)
+START_TIME=$(date +%s.%N)
 
 # 3. Pipeline corrigido: 'pv' removido para rodar nativamente no Windows.
 head -n $QTD data/measurements.txt | awk -F ";" '
@@ -41,17 +41,21 @@ head -n $QTD data/measurements.txt | awk -F ";" '
 END {
     # Impressão final formatada
 	for (v in cnts) {
-	    printf "%s: %.1f/%.1f/%.1f\n", v, mins[v], (sums[v]/cnts[v]), max[v]
+	    printf "%s: %.1f/%.1f/%.1f\n", v, mins[v], (sums[v]/cnts[v]), maxs[v]
 	}
 }' | sort
 
 # Captura o timestamp de término
-END_TIME=$(data +%s.%N)
+END_TIME=$(date +%s.%N)
 
 # Calcula a diferença usando o utilitário 'awk' (já que o Bash não faz conta com decimais nativamente).
-# 1M 0.00 segundos
 TEMPO_DECORRIDO=$(awk "BEGIN {print $END_TIME - $START_TIME}")
 
 echo "----------------------------------------"
 echo "Processamento concluído!"
 printf "Bash/AWK levou: %.2f segundos\n" $TEMPO_DECORRIDO
+
+# Resultados:
+# 1 milhão 2.80 segundos
+# 10 milhões 2.98 segundos
+# 100 milhões 2.85 segundos 

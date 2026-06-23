@@ -94,8 +94,6 @@ def process_file_in_parallel(filename: Path, chunksize: int) -> pd.DataFrame:
 
 # --- Ponto de Entrada do Script ---
 if __name__ == "__main__":
-    
-    # 1M 1.05 segundos
     print("Iniciando a execução do script com Pandas...")
     start_time = time.time()
     
@@ -110,3 +108,8 @@ if __name__ == "__main__":
     print("\n--- Processamento concluído! ---")
     print(final_dataframe.head())
     print(f"\nPandas paralelizado levou: {took:.2f} segundos.")
+    
+# Resultados:
+# 1 milhão 1.05 segundos
+# 10 milhões 3.84 segundos
+# 100 milhões 45.08 segundos

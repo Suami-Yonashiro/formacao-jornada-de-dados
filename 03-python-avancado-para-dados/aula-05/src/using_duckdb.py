@@ -31,7 +31,6 @@ if __name__ == "__main__":
         exit()
         
     # Armazena o resultado na variável em vez de apenas printar na tela
-    # 1M 0.55 segundos
     df_resultado = criar_relatorio_duckdb(FILENAME)
     
     # Exibe os dados de forma profissional
@@ -40,3 +39,8 @@ if __name__ == "__main__":
     
     took = time.time() - start_time
     print(f"\nDuckdb Otimizado levou: {took:.2f} segundos.")
+    
+# Resultados:
+# 1 milhão 0.55 segundos
+# 10 milhões 1.34 segundos
+# 100 milhões 7.20 segundos
