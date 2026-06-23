@@ -140,7 +140,7 @@ def main():
     """
     Função principal que orquestra o programa
     """
-    num_rows_to_create = 1_000_000
+    num_rows_to_create = 10_000_000
     
     if len(sys.argv) > 1:
         check_args(sys.argv)
