@@ -1,0 +1,45 @@
+name: CI - 03-python-avancado-para-dados / aula-06
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "03-python-avancado-para-dados/aula-06/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "03-python-avancado-para-dados/aula-06/**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 03-python-avancado-para-dados/aula-06
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Check formatting (black)
+        run: poetry run black --check .
+
+      - name: Check import order (isort)
+        run: poetry run isort --check-only .
+
+      - name: Lint (flake8)
+        run: poetry run flake8
+
+      - name: Security scan (bandit)
+        run: poetry run bandit -c pyproject.toml -r .
