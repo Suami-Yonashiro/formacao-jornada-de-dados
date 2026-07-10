@@ -20,6 +20,8 @@ Esta aula reúne dois temas que parecem separados mas resolvem o mesmo problema 
 
 ## 1. O pipeline de qualidade: PC → Git local → Git remoto
 
+![Pipeline de qualidade: Seu PC (pre-commit, local e opcional) → Git local → Git remoto (CI no GitHub Actions, obrigatório)](./assets/pipeline-qualidade.svg)
+
 | Etapa | Onde vive o código | O que avalia o código | Quem definiu a régua |
 |---|---|---|---|
 | **Código (seu PC)** | Working directory + staged files | **Pre-commit** — roda no `git commit`, antes do commit existir | Você (mesmo que o `.pre-commit-config.yaml` seja compartilhado, ativar é escolha individual) |
