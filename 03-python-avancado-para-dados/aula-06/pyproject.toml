@@ -1,7 +1,7 @@
 [project]
 name = "aula-06"
 version = "0.1.0"
-description = ""
+description = "Revisão, boas práticas, pre-commit e CI em um projeto Python monorepo"
 authors = [
     {name = "Suami Yonashiro",email = "suami.yy@gmail.com"}
 ]

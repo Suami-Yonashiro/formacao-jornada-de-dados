@@ -1,14 +1,14 @@
-# Aula 06 — Qualidade de Código: do seu PC até o time
+# Aula 06: Revisão, boas práticas, pre-commit (estilo, padrão de código) e CI
 
-Esta aula reúne dois temas que parecem separados mas resolvem o mesmo problema em escalas diferentes: **como garantir que o código que você escreve continua bom depois que sai da sua máquina**.
+Esta aula reúne dois temas que parecem separados mas resolvem o mesmo problema em escalas diferentes: **como garantir que o código que você escreve siga as boas práticas do projeto antes mesmo de sair da sua máquina.**.
 
-- `main.py`: reescrita do processamento de temperaturas (aula 05) usando   agregação em streaming (`defaultdict` acumulando min/max/soma/qtd por estação), trocando "guardar tudo em memória" por "guardar só o resumo".
+- `main.py`: reescrita do processamento de temperaturas (aula 05) usando agregação em streaming (`defaultdict` acumulando min/max/soma/qtd por estação), trocando "guardar tudo em memória" por "guardar só o resumo".
 - `main_2.py`: exercício de estruturas de controle de fluxo (`while` + `try/except`) para validação de entrada do usuário.
-- `.pre-commit-config.yaml`, `.flake8`, `pyproject.toml`: a configuração de qualidade que é o assunto real deste README.
+- `.pre-commit-config.yaml`, `.flake8`, `pyproject.toml`: a configuração que é o assunto real deste README.
 
 ## Sumário
 
-1. [O pipeline de qualidade: PC → Git local → Git remoto](#1-o-pipeline-de-qualidade-pc--git-local--git-remoto)
+1. [O pipeline: PC → Git local → Git remoto](#1-o-pipeline-de-qualidade-pc--git-local--git-remoto)
 2. [Pre-commit: o que é e o que ele faz aqui](#2-pre-commit-o-que-é-e-o-que-ele-faz-aqui)
 3. [Poetry no Windows](#3-poetry-no-windows)
 4. [Pre-commit vs. CI: onde termina a sua autoridade](#4-pre-commit-vs-ci-onde-termina-a-sua-autoridade)
@@ -18,7 +18,7 @@ Esta aula reúne dois temas que parecem separados mas resolvem o mesmo problema 
 
 ---
 
-## 1. O pipeline de qualidade: PC → Git local → Git remoto
+## 1. O pipeline: PC → Git local → Git remoto
 
 ![Pipeline de qualidade: Seu PC (pre-commit, local e opcional) → Git local → Git remoto (CI no GitHub Actions, obrigatório)](./assets/pipeline-qualidade.svg)
 
