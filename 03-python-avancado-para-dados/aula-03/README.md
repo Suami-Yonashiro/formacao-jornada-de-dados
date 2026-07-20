@@ -4,7 +4,7 @@
 
 Bem-vindo à terceira aula do bootcamp!
 
-Hoje, vamos explorar estruturas de controle de fluxo como if, for, e while. 
+Hoje, vamos explorar estruturas de controle de fluxo como if, for, e while.
 
 Usamos estrutura de Controle de Fluxo para tomar decisões!
 
@@ -135,7 +135,7 @@ while i < len(itens):
 ![imagem_03](./pics/3.png)
 
 Integre na solução anterior um fluxo de While que repita o fluxo até que o usuário insira as informações corretas
-    
+
 ##### Solução
 ```python
 # Inicializa as variáveis para o controle do loop

@@ -1,6 +1,6 @@
 # Aula 02: TypeError, Type Check, Type Conversion, try-except e if
 
-Bem-vindo à segunda aula do bootcamp! 
+Bem-vindo à segunda aula do bootcamp!
 
 ![imagem_01](./pics/1.png)
 

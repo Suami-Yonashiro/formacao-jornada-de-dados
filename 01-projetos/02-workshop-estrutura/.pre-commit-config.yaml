@@ -19,7 +19,7 @@ repos:
 
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 6.3.0 # modify this to be the version you want
-    hooks: 
+    hooks:
       - id: pydocstyle
 
   - repo: local

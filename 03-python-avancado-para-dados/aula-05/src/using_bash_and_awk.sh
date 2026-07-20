@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# --- DOCUMENTAÇÃO DIDÁTICA --- 
+# --- DOCUMENTAÇÃO DIDÁTICA ---
 # Script em Bash adaptado para windows
 # Objetivo: Medir o tempo de processamento em streaming sem dependências externas.
 
@@ -27,8 +27,8 @@ head -n $QTD data/measurements.txt | awk -F ";" '
 {
 	# Se a estação ainda não foi registrada, inicializa os limites
 	if (!($1 in cnts)){
-		mins[$1] = $2 
-		maxs[$1] = $2 
+		mins[$1] = $2
+		maxs[$1] = $2
 	}
 	else{
 	    # Atualização lógica em tempo real
@@ -58,4 +58,4 @@ printf "Bash/AWK levou: %.2f segundos\n" $TEMPO_DECORRIDO
 # Resultados:
 # 1 milhão 2.80 segundos
 # 10 milhões 2.98 segundos
-# 100 milhões 2.85 segundos 
+# 100 milhões 2.85 segundos

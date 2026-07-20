@@ -8,7 +8,6 @@ import pandas as pd
 
 
 def extract_from_excel(path: str) -> List[pd.DataFrame]:
-
     """
     função para ler os arquivos de uma pasta data/input e retornaruma
     lista de dataframes
@@ -19,7 +18,7 @@ def extract_from_excel(path: str) -> List[pd.DataFrame]:
     """
 
     # lista de arquivos
-    all_files = glob.glob(os.path.join(path, '*.xlsx'))
+    all_files = glob.glob(os.path.join(path, "*.xlsx"))
 
     data_frame_list = []
     for file in all_files:
@@ -29,6 +28,6 @@ def extract_from_excel(path: str) -> List[pd.DataFrame]:
     return data_frame_list
 
 
-if __name__ == '__main__':
-    data_frame_list = extract_from_excel('data/input')
+if __name__ == "__main__":
+    data_frame_list = extract_from_excel("data/input")
     print(data_frame_list)

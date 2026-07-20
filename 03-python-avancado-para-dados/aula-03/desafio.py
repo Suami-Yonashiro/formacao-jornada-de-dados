@@ -8,7 +8,7 @@ bonus_valido = False
 while nome_valido is not True:
     try:
         nome = input("Digite o seu nome: ")
-        
+
         # verifica se o nome está vazio.
         if len(nome) == 0:
             raise ValueError("O nome não pode estar vazio.")
@@ -20,7 +20,7 @@ while nome_valido is not True:
             print(f"Nome válido, bem-vindo {nome}.")
     except ValueError as e:
         print(e)
-        
+
 while salario_valido is not True:
     try:
         salario = float(input("Digite o valor do seu salário: "))
@@ -36,11 +36,13 @@ while bonus_valido is not True:
         bonus = float(input("Digite o valor do bônus recebido: "))
         if bonus < 0:
             print("Por favor, digite um valor positivo para o bônus: ")
-        else: 
+        else:
             bonus_valido = True
     except ValueError:
         print("Entrada válida.")
 
-bonus_recebido = 1000 + salario * bonus # exemplo simples de KPI.
+bonus_recebido = 1000 + salario * bonus  # exemplo simples de KPI.
 # imprime as informações para o usuário.
-print(f"{nome}, seu salário de R${salario:.2f} ficou com o bônus final de R${bonus_recebido:.2f}.")        
+print(
+    f"{nome}, seu salário de R${salario:.2f} ficou com o bônus final de R${bonus_recebido:.2f}."
+)
