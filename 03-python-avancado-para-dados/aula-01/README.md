@@ -25,7 +25,7 @@ Escreva um programa em Python que solicita ao usuário para digitar seu nome, o 
 5. **Cálculo do nosso primeiro KPI** (20 minutos)
 6. **Dúvidas e desafio** (20 minutos)
 
-### 1. Introdução 
+### 1. Introdução
 
 Nesta aula, focaremos em preparar seu ambiente de desenvolvimento. Antes de começarmos a programar em Python, precisamos configurar as ferramentas necessárias para tornar nosso trabalho mais eficiente e organizado.
 
@@ -47,13 +47,13 @@ Ao digitar `python` no terminal, iniciaremos o interpretador Python.
 Vamos praticar com alguns exemplos simples:
 
 1. **Imprimir uma mensagem de boas-vindas:**
-    
+
     ```python
     print("Bom dia turma do Bootcamp!")
     ```
-    
+
 2. **Realizar uma operação matemática simples (soma):**
-    
+
     ```python
     print(3 + 5)
     ```
@@ -80,12 +80,12 @@ Por fim, vamos configurar o Git para versionamento de código.
 * Baixe o instalador do Git no site oficial.
 * Siga as instruções de instalação de acordo com seu sistema operacional.
 * Após a instalação, abra o terminal e configure seu nome de usuário e email no Git utilizando os comandos:
-    
+
     ```arduino
     git config --global user.name "Seu Nome"
     git config --global user.email "seuemail@example.com"
     ```
-    
+
 ## 5. Exercícios de `print()`, `input()`, variáveis e estrutura de dados
 
 Parabéns! Agora que configuramos todas as ferramentas necessárias, vamos concluir nossa aula com um simples "Hello World" em Python.
@@ -165,15 +165,15 @@ Digite outro valo: 10
 #### Considerações Importantes
 
 * **Tipo de Dados**: Por padrão, tudo o que é capturado pelo `input()` é tratado como uma `string`. Se você precisar trabalhar com outro tipo de dado (como inteiros ou floats), será necessário converter a entrada do usuário para o tipo desejado usando funções como `int()` ou `float()`.
-    
+
     ```python
     idade = int(input("Digite sua idade: "))
     ```
-    
+
 * **Segurança**: Ao usar `input()` para receber dados do usuário, é importante considerar a validação desses dados, especialmente se eles forem usados em operações críticas ou transmitidos a outras partes do sistema.
-    
+
 * **Usabilidade**: O `prompt` deve ser claro e informativo para guiar o usuário sobre o que precisa ser inserido, melhorando a usabilidade e a experiência do usuário.
-    
+
 O comando `input()` é uma ferramenta fundamental para criar scripts e programas interativos em Python, permitindo a coleta de dados de entrada de uma maneira fácil e acessível.
 
 #### 3) Declaração e Atribuição de Variáveis
