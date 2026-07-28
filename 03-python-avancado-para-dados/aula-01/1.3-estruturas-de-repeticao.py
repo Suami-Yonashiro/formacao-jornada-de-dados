@@ -66,3 +66,41 @@ for lance in range(1, 4):
 
 print("Fim de jogo!")
 print(f"O total de gols do Brasil: {gols_brasil}")
+
+# =========================================================
+# 7) WHILE COM CONTADOR
+# Cenário: repetir cobranças enquanto o número for menor ou igual a 5
+# =========================================================
+
+resultado = input("Acertou o pênalti? sim ou não: ")
+
+while resultado != "sim":
+    print("Errou... tente de novo!")
+    resultado = input("Acertou o pênalti? sim ou não: ")
+
+print("Boa! O jogador acertou o pênalti")
+
+# =========================================================
+# 9) WHILE + FOR + IF
+# Cenário: treino continua até o time alcançar 3 gols
+# =========================================================
+
+gols = 0
+rodada = 1
+
+while gols < 3:
+    print(f"\nRodada de treino {rodada}")
+
+    for cobranca in range(1, 4):
+        print(f"Cobrança {cobranca}")
+
+        resultado = input("Foi gol: Digite sim ou não: ")
+
+        if resultado == "sim":
+            gols += 1
+            print("GOOOL!")
+        else:
+            print("Errou...")
+
+    print(f"O total de gols até agora: {gols}")
+    rodada += 1
