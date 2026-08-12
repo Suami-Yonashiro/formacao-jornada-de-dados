@@ -72,22 +72,89 @@ from typing import List
 # 4. Converter Celsius para Fahrenheit em uma Lista.
 
 
-def celsius_para_fahrenheit(temperatura_celsius: List[float]) -> List[float]:
-    lista_fahrenheit = []
+# def celsius_para_fahrenheit(temperatura_celsius: List[float]) -> List[float]:
+#     lista_fahrenheit = []
 
-    for celsius in lista_celsius:
-        fahrenheit: float = (celsius * 9 / 5) + 32
+#     for celsius in lista_celsius:
+#         fahrenheit: float = (celsius * 9 / 5) + 32
 
-        lista_fahrenheit.append(fahrenheit)
+#         lista_fahrenheit.append(fahrenheit)
 
-    return lista_fahrenheit
+#     return lista_fahrenheit
 
 
 # Testando a função.
 
-lista_celsius: List[int] = [-1, 10, 27, -15]
+# lista_celsius: List[int] = [-1, 10, 27, -15]
 
-lista_fahrenheit: List[float] = celsius_para_fahrenheit(lista_celsius)
+# lista_fahrenheit: List[float] = celsius_para_fahrenheit(lista_celsius)
 
-print(f"As temperaturas em Celsius: {lista_celsius}")
-print(f"Em Fahrenheit ficam: {lista_fahrenheit}")
+# print(f"As temperaturas em Celsius: {lista_celsius}")
+# print(f"Em Fahrenheit ficam: {lista_fahrenheit}")
+
+# 5. Calcular Desvio Padrão de uma Lista.
+
+# def calcular_desvio_padrao(lista: List[float]) -> float:
+#     # verificação de segurança para lista vazia ou 1 elemento.
+#     if len(lista) <= 1:
+#         return 0.0
+
+#     # passo 1: calcular a média
+#     media: float = sum(lista) / len(lista)
+
+#     # passo 2: somar desvios ao quadrado
+#     soma_desvios_quadrado = 0.0
+#     for numero in lista:
+#         distancia = numero - media
+#         soma_desvios_quadrado += distancia ** 2 # ** 2 elevado ao quadrado
+
+#     # passo 3: Calcular a variância (dividir pelo total de elementos)
+#     variancia: float = soma_desvios_quadrado / len(lista)
+
+#     # passo 4: Calcular a raiz quadrada
+#     desvio_padrao: float = variancia ** 0.5
+
+#     return desvio_padrao
+
+# Testando a função.
+
+# dados: List[int] = [10, 12, 23, 23, 16, 23, 21, 16]
+# resultado: float = calcular_desvio_padrao(dados)
+
+# print(f"Lista de dados: {dados}.")
+# print(f"O desvio padrão é: {resultado:.2f}.")
+
+# 6. Encontrar Valores Ausentes em uma Sequência.
+
+
+def encontrar_valores_ausentes(sequencia: List[int]) -> List[int]:
+    # se a lista estiver vazia ou com menos de 2 elementos, não tem o que comparar.
+    if len(sequencia) < 2:
+        return []
+
+    # descobrimos onde a sequêcia começa (min) e onde termina (max)
+    inicio: int = min(sequencia)
+    fim: int = max(sequencia)
+
+    valores_ausentes = []
+
+    # passo 2: passamos por todos os números que deveriam existir nessa sequência.
+    for numero in range(
+        inicio, fim + 1
+    ):  # +1 garante que o último número também seja testado.
+        # passo 3:
+        if numero not in sequencia:
+            # nós o guardamos na lista de ausentes.
+            valores_ausentes.append(numero)
+
+    return valores_ausentes
+
+
+# Testando a função.
+
+sequencia_quebrada = [1, 2, 4, 5, 7, 8, 10]
+
+faltando = encontrar_valores_ausentes(sequencia_quebrada)
+
+print(f"Sequência original: {sequencia_quebrada}.")
+print(f"Números ausentes: {faltando}.")
