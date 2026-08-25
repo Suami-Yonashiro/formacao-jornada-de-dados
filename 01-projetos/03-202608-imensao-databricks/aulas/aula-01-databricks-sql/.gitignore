@@ -1,0 +1,5 @@
+# Arquivos grandes nesta pasta
+# apresentação Power Point
+# dataset em zip
+*.pptx
+*.zip
