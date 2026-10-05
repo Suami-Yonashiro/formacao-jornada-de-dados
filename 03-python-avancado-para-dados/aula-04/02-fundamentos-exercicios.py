@@ -60,21 +60,53 @@
 # Utilize return para devolver o resultado.
 
 
-def calcular_total(preco: float, quantidade: int) -> float:
+# def calcular_total(preco: float, quantidade: int) -> float:
+#     """
+#     Recebe o preço de um produto, sua quantidade comprada e calcular o valor total.
+
+#     Args:
+#         preco (float): Preço unitário do produto.
+#         quantidade (int): Quantidade unitária do produto.
+
+#     Returns:
+#         float: Valor final e total da compra.
+#     """
+#     total: float = preco * quantidade
+
+#     return total
+
+
+# total: float = calcular_total(50.0, 3)
+# print(f"R$ {total:.2f}")
+
+# 4. Calculando a média de avaliações.
+# Uma plataforma armazena três avaliações dadas por usuários para um produto.
+# Crie uma função chamada calcular_media_avaliacoes() que receba três notas e retorne a média entre elas.
+# Depois, utilize o resultado retornado pela função para exibir a média das avaliações.
+# Requisitos:
+# Utilize parâmetros e argumentos.
+# Adicione type hints.
+# Utilize return.
+# Adicione uma docstring explicando o que a função recebe e o que retorna.
+# Guarde o resultado da função em uma variável antes de exibi-lo.
+
+
+def calcular_media_avaliacoes(nota1: float, nota2: float, nota3: float) -> float:
     """
-    Recebe o preço de um produto, sua quantidade comprada e calcular o valor total.
+    Calcula a média das avaliações a partir de 3 notas.
 
     Args:
-        preco (float): Preço unitário do produto.
-        quantidade (int): Quantidade unitária do produto.
+        nota1 (float): Primeira nota da avaliação.
+        nota2 (float): Segunda nota da avaliação.
+        nota3 (float): Terceira nota da avaliação.
 
     Returns:
-        float: Valor final e total da compra.
+        float: Média das notas das avaliações.
     """
-    total: float = preco * quantidade
+    media: float = (nota1 + nota2 + nota3) / 3
 
-    return total
+    return media
 
 
-total: float = calcular_total(50.0, 3)
-print(f"R$ {total:.2f}")
+media_final: float = calcular_media_avaliacoes(8.7, 3.5, 6.8)
+print(f"A média das avaliações é: {media_final:.2f}")
