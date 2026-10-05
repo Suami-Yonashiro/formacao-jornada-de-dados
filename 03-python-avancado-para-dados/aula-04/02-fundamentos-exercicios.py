@@ -91,22 +91,79 @@
 # Guarde o resultado da função em uma variável antes de exibi-lo.
 
 
-def calcular_media_avaliacoes(nota1: float, nota2: float, nota3: float) -> float:
+# def calcular_media_avaliacoes(nota1: float, nota2: float, nota3: float) -> float:
+#     """
+#     Calcula a média das avaliações a partir de 3 notas.
+
+#     Args:
+#         nota1 (float): Primeira nota da avaliação.
+#         nota2 (float): Segunda nota da avaliação.
+#         nota3 (float): Terceira nota da avaliação.
+
+#     Returns:
+#         float: Média das notas das avaliações.
+#     """
+#     media: float = (nota1 + nota2 + nota3) / 3
+
+#     return media
+
+
+# media_final: float = calcular_media_avaliacoes(8.7, 3.5, 6.8)
+# print(f"A média das avaliações é: {media_final:.2f}")
+
+# 5. Processando um pedido.
+# Você precisa criar duas funções para representar uma pequena parte de um sistema de pedidos.
+# A primeira função deve se chamar: calcular_valor_final()
+# Ela deve receber:
+# preço unitário;
+# quantidade;
+# desconto em formato decimal.
+# Por exemplo, 0.10 representa 10% de desconto.
+# A função deve calcular e retornar o valor final do pedido após o desconto.
+# Depois, crie uma segunda função chamada: exibir_resumo_pedido()
+# Ela deve receber:
+# número do pedido;
+# valor final.
+# E exibir uma mensagem como: Pedido #1025 finalizado. Total: R$ 270.00
+# Requisitos:
+# As duas funções devem possuir type hints.
+# calcular_valor_final() deve retornar um float.
+# exibir_resumo_pedido() deve retornar None.
+# As duas funções devem possuir docstrings.
+# O valor retornado por calcular_valor_final() deve ser passado como argumento para exibir_resumo_pedido().
+# Não faça o cálculo diretamente fora da função.
+
+
+def calcular_valor_final(preco: float, quantidade: int, desconto: float) -> float:
     """
-    Calcula a média das avaliações a partir de 3 notas.
+    Calcula o valor final do produto a partir do valor unitário, quantidade e desconto aplicado.
 
     Args:
-        nota1 (float): Primeira nota da avaliação.
-        nota2 (float): Segunda nota da avaliação.
-        nota3 (float): Terceira nota da avaliação.
+        preco (float): Preço unitário do produto.
+        quantidade (int): Quantidade comprada.
+        desconto (float): Percentual de desconto em formato decimal.
 
     Returns:
-        float: Média das notas das avaliações.
+        float: Valor final da compra.
     """
-    media: float = (nota1 + nota2 + nota3) / 3
+    subtotal: float = preco * quantidade
+    valor_desconto: float = subtotal * desconto
+    total: float = subtotal - valor_desconto
 
-    return media
+    return total
 
 
-media_final: float = calcular_media_avaliacoes(8.7, 3.5, 6.8)
-print(f"A média das avaliações é: {media_final:.2f}")
+def exibir_resumo_pedido(numero_pedido: int, valor: float) -> None:
+    """
+    Exibe o resumo do pedido finalizado na tela.
+
+    Args:
+        numero (int): Identificador do pedido (id).
+        valor (float): Valor final do produto.
+    """
+    print(f"Pedido #{numero_pedido} finalizado. Total R$ {valor:.2f}")
+
+
+id_pedido: int = 1025
+valor_final: float = calcular_valor_final(preco=100, quantidade=3, desconto=0.10)
+exibir_resumo_pedido(id_pedido, valor_final)
