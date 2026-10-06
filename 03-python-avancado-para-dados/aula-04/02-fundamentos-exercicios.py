@@ -332,56 +332,209 @@
 # Cada função deve possuir apenas uma responsabilidade.
 
 
-def calcular_tempo_estimado(distancia: float, velocidade: float) -> float:
-    """
-    Calcula e retorna o tempo estimado da entrega em horas, a partir da distância e velocidade do entregador.
+# def calcular_tempo_estimado(distancia: float, velocidade: float) -> float:
+#     """
+#     Calcula e retorna o tempo estimado da entrega em horas, a partir da distância e velocidade do entregador.
 
-    Args:
-        distancia (float): Valor da distância em quilômetros.
-        velocidade (float): Velocidade média do veículo em km/h.
+#     Args:
+#         distancia (float): Valor da distância em quilômetros.
+#         velocidade (float): Velocidade média do veículo em km/h.
 
-    Returns:
-        float: Valor do tempo estimado em horas.
-    """
-    tempo: float = distancia / velocidade
-    return tempo
-
-
-def classificar_entrega(tempo: float) -> str:
-    """
-    Recebe o tempo estimado da entrega e retorna uma string classificadora.
-
-    Args:
-        tempo (float): Valor do tempo estimado em horas.
-
-    Returns:
-        str: Mensagem classificadora referente a entrega efetuada.
-    """
-    if tempo <= 1:
-        return "Entrega rápida."
-    elif 1 < tempo <= 3:
-        return "Entrega normal."
-    else:
-        return "Entrega demorada."
+#     Returns:
+#         float: Valor do tempo estimado em horas.
+#     """
+#     tempo: float = distancia / velocidade
+#     return tempo
 
 
-def exibir_resumo_entrega(tempo: float, classificacao: str) -> None:
-    """
-    Exibe na tela as informações do tempo estimado e da classificação recebida.
+# def classificar_entrega(tempo: float) -> str:
+#     """
+#     Recebe o tempo estimado da entrega e retorna uma string classificadora.
 
-    Args:
-        tempo (float): Valor do tempo estimado em horas.
-        classificacao (str): Mensagem classificadora referente a entrega efetuada.
-    """
-    print(f"Tempo estimado: {tempo:.1f} horas.")
-    print(f"Classificação: {classificacao}")
+#     Args:
+#         tempo (float): Valor do tempo estimado em horas.
+
+#     Returns:
+#         str: Mensagem classificadora referente a entrega efetuada.
+#     """
+#     if tempo <= 1:
+#         return "Entrega rápida."
+#     elif 1 < tempo <= 3:
+#         return "Entrega normal."
+#     else:
+#         return "Entrega demorada."
 
 
-distancia_entrega: float = 115.5
-velocidade_entrega: float = 60.0
+# def exibir_resumo_entrega(tempo: float, classificacao: str) -> None:
+#     """
+#     Exibe na tela as informações do tempo estimado e da classificação recebida.
 
-tempo_entrega: float = calcular_tempo_estimado(distancia_entrega, velocidade_entrega)
-mensagem_entrega: str = classificar_entrega(tempo_entrega)
-exibir_resumo_entrega(tempo_entrega, mensagem_entrega)
+#     Args:
+#         tempo (float): Valor do tempo estimado em horas.
+#         classificacao (str): Mensagem classificadora referente a entrega efetuada.
+#     """
+#     print(f"Tempo estimado: {tempo:.1f} horas.")
+#     print(f"Classificação: {classificacao}")
+
+
+# distancia_entrega: float = 115.5
+# velocidade_entrega: float = 60.0
+
+# tempo_entrega: float = calcular_tempo_estimado(distancia_entrega, velocidade_entrega)
+# mensagem_entrega: str = classificar_entrega(tempo_entrega)
+# exibir_resumo_entrega(tempo_entrega, mensagem_entrega)
 
 # 10. Sistema de Aprovação de Empréstimo.
+# Você está desenvolvendo uma parte de um sistema bancário responsável por analisar solicitações de empréstimo.
+# O programa deverá utilizar várias funções, e cada uma terá uma responsabilidade específica.
+# 1. Calcular comprometimento da renda
+# Crie uma função chamada calcular_comprometimento_renda() que receba:
+# 1. renda mensal;
+# 2. valor da parcela do empréstimo.
+# Ela deve calcular qual percentual da renda mensal seria comprometido pela parcela.
+# Use: percentual = (parcela / renda) * 100
+# A função deve retornar esse percentual.
+# 2. Analisar o empréstimo
+# Crie uma segunda função chamada analisar_emprestimo() que receba:
+# renda mensal;
+# valor solicitado;
+# percentual de comprometimento da renda.
+# A função deve retornar uma das seguintes classificações:
+# "Aprovado"
+# "Análise manual"
+# "Recusado"
+# Utilize estas regras:
+# Se o comprometimento da renda for maior que 40%, retorne "Recusado".
+# Se o comprometimento for menor ou igual a 40%, mas o valor solicitado for maior que 5 vezes a renda mensal, retorne "Análise manual".
+# Caso contrário, retorne "Aprovado".
+# 3. Calcular o total do pagamento
+# Crie uma terceira função chamada calcular_total_pagamento() que receba:
+# valor da parcela;
+# quantidade de parcelas.
+# Ela deve retornar o valor total que será pago ao final do empréstimo.
+# Exemplo:
+# Parcela: R$ 850.00
+# Quantidade: 24
+# Total pago: R$ 20400.00
+# 4. Exibir o resultado final
+# Por fim, crie uma função chamada exibir_resultado() que receba:
+# valor solicitado;
+# percentual de comprometimento;
+# total que será pago;
+# resultado da análise.
+# Ela deve apenas exibir um resumo como:
+# --- Análise do empréstimo ---
+# Valor solicitado: R$ 15000.00
+# Comprometimento da renda: 28.3%
+# Total a pagar: R$ 20400.00
+# Resultado: Aprovado
+# Requisitos
+# Todas as funções devem possuir type hints.
+# Todas devem possuir docstrings.
+# calcular_comprometimento_renda() deve retornar float.
+# analisar_emprestimo() deve retornar str.
+# calcular_total_pagamento() deve retornar float.
+# exibir_resultado() deve retornar None.
+# Os cálculos devem acontecer dentro das funções responsáveis por eles.
+# Não repita cálculos fora das funções.
+# Os valores retornados pelas funções devem ser armazenados em variáveis e reutilizados nas próximas etapas.
+# A função exibir_resultado() deve apenas receber os resultados já calculados e exibi-los.
+# Não utilize *args, **kwargs, parâmetros com valores padrão ou outros recursos ainda não vistos nesta aula.
+# Fluxo esperado:
+# dados do empréstimo
+# ↓
+# calcular comprometimento da renda
+# ↓
+# analisar empréstimo
+# ↓
+# calcular total do pagamento
+# ↓
+# exibir resultado final
+# O objetivo é organizar um problema maior em funções menores, fazendo com que o retorno de uma etapa seja utilizado pelas próximas.
+
+
+def calcular_comprometimento_renda(renda: float, parcela: float) -> float:
+    """
+    Recebe a renda o valor de uma possível parcela de empréstimo e calcula o percentual que essa parcela compromete a renda.
+
+    Args:
+        renda (float): Valor da renda mensal (R$).
+        parcela (float): Possível valor da parcela do empréstimo.
+
+    Returns:
+        float: Percentual que a parcela ocupa no valor da renda mensal.
+    """
+    percentual: float = (parcela / renda) * 100
+    return percentual
+
+
+def analisar_emprestimo(renda: float, valor: float, percentual: float) -> str:
+    """
+    Recebe os valores que estão no "Args:" e classifica.
+
+    Args:
+        renda (float): Valor da renda mensal (R$).
+        valor (float): Valor do empréstimo solicitado (R$).
+        percentual (float): Valor percentual de comprometimento da renda.
+
+    Returns:
+        str: Classifica o empréstimo solicitado.
+    """
+    if percentual > 40:
+        return "Recusado"
+    elif valor > 5 * renda:
+        return "Análise manual"
+    else:
+        return "Aprovado"
+
+
+def calcular_total_pagamento(parcela: float, quantidade: int) -> float:
+    """
+    Calcula o total do pagamento do empréstimo sem taxas e juros.
+
+    Args:
+        parcela (float): Valor da parcela.
+        quantidade (int): Quantidade de parcelas.
+
+    Returns:
+        float: Valor total (sem taxas e juros) do pagamento do empréstimo.
+    """
+    total_pagamento: float = parcela * quantidade
+    return total_pagamento
+
+
+def exibir_resultado(
+    valor: float, percentual: float, total_pagamento: float, resultado: str
+) -> None:
+    """
+    Exibe os resultados com os dados do "Args:".
+
+    Args:
+        valor (float): Valor do empréstimo solicitado (R$).
+        percentual (float): Valor percentual de comprometimento da renda.
+        total_pagamento (float): Valor total (sem taxas e juros) do pagamento do empréstimo.
+        resultado (str): Classificador do empréstimo solicitado.
+    """
+    print("--- Análise do empréstimo ---")
+    print(f"\nValor solicitado: R$ {valor:.2f}.")
+    print(f"Comprometimento da renda: {percentual} %.")
+    print(f"Total a pagar: R$ {total_pagamento}.")
+    print(f"\nResultado: {resultado}.")
+
+
+salario: float = 3000.00
+valor_solicitado: float = 15000.00
+valor_parcela: float = 850.00
+qtd_parcela: int = 24
+
+percentual_comprometido: float = calcular_comprometimento_renda(salario, valor_parcela)
+
+classicacao: str = analisar_emprestimo(
+    salario, valor_solicitado, percentual_comprometido
+)
+
+total_emprestimo: float = calcular_total_pagamento(valor_parcela, qtd_parcela)
+
+exibir_resultado(
+    valor_solicitado, percentual_comprometido, total_emprestimo, classicacao
+)
