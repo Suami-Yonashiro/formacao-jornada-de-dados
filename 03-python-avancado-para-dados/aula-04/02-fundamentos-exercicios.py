@@ -268,40 +268,120 @@
 # Não repita o cálculo do percentual fora da função.
 
 
-def calcular_percentual_meta(meta: float, vendido: float) -> float:
-    """
-    Calcula e retorna o percentual da meta que foi atingido.
+# def calcular_percentual_meta(meta: float, vendido: float) -> float:
+#     """
+#     Calcula e retorna o percentual da meta que foi atingido.
 
-    Args:
-        meta (float): Valor da meta estabelecido.
-        vendido (float): Valor vendido até o momento.
+#     Args:
+#         meta (float): Valor da meta estabelecido.
+#         vendido (float): Valor vendido até o momento.
 
-    Returns:
-        float: O percentual alcançado até o momento.
-    """
-    resultado: float = (vendido / meta) * 100
-    return resultado
-
-
-def exibir_status_meta(resultado: float) -> None:
-    """
-    Exibe uma mensagem se a meta foi atingida ou não.
-
-    Args:
-        resultado (float): Valor do calculo do percentual
-
-    Returns:
-        None
-    """
-    if resultado >= 100:
-        print("Meta atingida!")
-    else:
-        print("Meta ainda não atingida.")
+#     Returns:
+#         float: O percentual alcançado até o momento.
+#     """
+#     resultado: float = (vendido / meta) * 100
+#     return resultado
 
 
-meta_empresa: float = 10000.0
-vendas_ate_momento: float = 7500.0
-percentual: float = calcular_percentual_meta(meta_empresa, vendas_ate_momento)
-exibir_status_meta(percentual)
+# def exibir_status_meta(resultado: float) -> None:
+#     """
+#     Exibe uma mensagem se a meta foi atingida ou não.
+
+#     Args:
+#         resultado (float): Valor do calculo do percentual
+
+#     Returns:
+#         None
+#     """
+#     if resultado >= 100:
+#         print("Meta atingida!")
+#     else:
+#         print("Meta ainda não atingida.")
+
+
+# meta_empresa: float = 10000.0
+# vendas_ate_momento: float = 7500.0
+# percentual: float = calcular_percentual_meta(meta_empresa, vendas_ate_momento)
+# exibir_status_meta(percentual)
 
 # 9. Analisando uma entrega.
+# Você está desenvolvendo uma pequena parte de um sistema de entregas.
+# Crie uma função chamada calcular_tempo_estimado() que receba:
+# 1. distância da entrega em quilômetros;
+# 2. velocidade média do veículo em km/h.
+# A função deve calcular e retornar o tempo estimado da entrega em horas.
+# Use: tempo = distancia / velocidade
+# Depois, crie uma função chamada classificar_entrega() que receba o tempo calculado e retorne:
+# "Entrega rápida" se o tempo for menor ou igual a 1;
+# "Entrega normal" se o tempo for maior que 1 e menor ou igual a 3;
+# "Entrega demorada" se o tempo for maior que 3.
+# Por fim, crie uma terceira função chamada exibir_resumo_entrega() que receba:
+# 1. o tempo estimado;
+# 2. a classificação.
+# Ela deve exibir algo como:
+# Tempo estimado: 2.5 horas
+# Classificação: Entrega normal
+# Requisitos:
+# As três funções devem possuir type hints.
+# calcular_tempo_estimado() deve retornar float.
+# classificar_entrega() deve retornar str.
+# exibir_resumo_entrega() deve retornar None.
+# Todas devem possuir docstrings.
+# O resultado de calcular_tempo_estimado() deve ser utilizado por classificar_entrega().
+# Os resultados das duas primeiras funções devem ser utilizados por exibir_resumo_entrega().
+# Cada função deve possuir apenas uma responsabilidade.
+
+
+def calcular_tempo_estimado(distancia: float, velocidade: float) -> float:
+    """
+    Calcula e retorna o tempo estimado da entrega em horas, a partir da distância e velocidade do entregador.
+
+    Args:
+        distancia (float): Valor da distância em quilômetros.
+        velocidade (float): Velocidade média do veículo em km/h.
+
+    Returns:
+        float: Valor do tempo estimado em horas.
+    """
+    tempo: float = distancia / velocidade
+    return tempo
+
+
+def classificar_entrega(tempo: float) -> str:
+    """
+    Recebe o tempo estimado da entrega e retorna uma string classificadora.
+
+    Args:
+        tempo (float): Valor do tempo estimado em horas.
+
+    Returns:
+        str: Mensagem classificadora referente a entrega efetuada.
+    """
+    if tempo <= 1:
+        return "Entrega rápida."
+    elif 1 < tempo <= 3:
+        return "Entrega normal."
+    else:
+        return "Entrega demorada."
+
+
+def exibir_resumo_entrega(tempo: float, classificacao: str) -> None:
+    """
+    Exibe na tela as informações do tempo estimado e da classificação recebida.
+
+    Args:
+        tempo (float): Valor do tempo estimado em horas.
+        classificacao (str): Mensagem classificadora referente a entrega efetuada.
+    """
+    print(f"Tempo estimado: {tempo:.1f} horas.")
+    print(f"Classificação: {classificacao}")
+
+
+distancia_entrega: float = 115.5
+velocidade_entrega: float = 60.0
+
+tempo_entrega: float = calcular_tempo_estimado(distancia_entrega, velocidade_entrega)
+mensagem_entrega: str = classificar_entrega(tempo_entrega)
+exibir_resumo_entrega(tempo_entrega, mensagem_entrega)
+
+# 10. Sistema de Aprovação de Empréstimo.
