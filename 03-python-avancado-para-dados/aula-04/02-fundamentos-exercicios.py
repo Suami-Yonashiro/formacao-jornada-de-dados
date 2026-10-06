@@ -134,36 +134,68 @@
 # Não faça o cálculo diretamente fora da função.
 
 
-def calcular_valor_final(preco: float, quantidade: int, desconto: float) -> float:
+# def calcular_valor_final(preco: float, quantidade: int, desconto: float) -> float:
+#     """
+#     Calcula o valor final do produto a partir do valor unitário, quantidade e desconto aplicado.
+
+#     Args:
+#         preco (float): Preço unitário do produto.
+#         quantidade (int): Quantidade comprada.
+#         desconto (float): Percentual de desconto em formato decimal.
+
+#     Returns:
+#         float: Valor final da compra.
+#     """
+#     subtotal: float = preco * quantidade
+#     valor_desconto: float = subtotal * desconto
+#     total: float = subtotal - valor_desconto
+
+#     return total
+
+
+# def exibir_resumo_pedido(numero_pedido: int, valor: float) -> None:
+#     """
+#     Exibe o resumo do pedido finalizado na tela.
+
+#     Args:
+#         numero (int): Identificador do pedido (id).
+#         valor (float): Valor final do produto.
+#     """
+#     print(f"Pedido #{numero_pedido} finalizado. Total R$ {valor:.2f}")
+
+
+# id_pedido: int = 1025
+# valor_final: float = calcular_valor_final(preco=100, quantidade=3, desconto=0.10)
+# exibir_resumo_pedido(id_pedido, valor_final)
+
+# 6. Convertendo temperatura.
+# Crie uma função chamada converter_celsius_para_fahrenheit().
+# A função deve receber uma temperatura em Celsius e retornar o valor convertido para Fahrenheit.
+# Use a fórmula: fahrenheit = (celsius * 9 / 5) + 32
+# Depois, armazene o resultado em uma variável e imprima a temperatura convertida.
+# Requisitos:
+# Receba a temperatura por parâmetro.
+# Utilize type hint float.
+# A função deve retornar um float.
+# Utilize return.
+# Adicione uma docstring explicando a função.
+
+
+def converter_celsius_para_fahrenheit(celsius: float) -> float:
     """
-    Calcula o valor final do produto a partir do valor unitário, quantidade e desconto aplicado.
+    Recebe temperatura em Celsius e retorna o valor em Fahrenheit
 
     Args:
-        preco (float): Preço unitário do produto.
-        quantidade (int): Quantidade comprada.
-        desconto (float): Percentual de desconto em formato decimal.
+        celsius (float): Valor da temperatura em Celsius
 
     Returns:
-        float: Valor final da compra.
+        float: Valor da temperatura em Fahrenheit
     """
-    subtotal: float = preco * quantidade
-    valor_desconto: float = subtotal * desconto
-    total: float = subtotal - valor_desconto
+    fahrenheit: float = (celsius * 9 / 5) + 32
 
-    return total
+    return fahrenheit
 
 
-def exibir_resumo_pedido(numero_pedido: int, valor: float) -> None:
-    """
-    Exibe o resumo do pedido finalizado na tela.
-
-    Args:
-        numero (int): Identificador do pedido (id).
-        valor (float): Valor final do produto.
-    """
-    print(f"Pedido #{numero_pedido} finalizado. Total R$ {valor:.2f}")
-
-
-id_pedido: int = 1025
-valor_final: float = calcular_valor_final(preco=100, quantidade=3, desconto=0.10)
-exibir_resumo_pedido(id_pedido, valor_final)
+valor_celsius: float = 32.1
+temperatura_convertida: float = converter_celsius_para_fahrenheit(valor_celsius)
+print(f"A temperatura {valor_celsius}°C é igual a {temperatura_convertida:.2f}°F")
