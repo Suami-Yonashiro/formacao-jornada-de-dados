@@ -217,33 +217,91 @@
 # O resultado da primeira função deve ser passado como argumento para a segunda.
 
 
-def calcular_consumo_medio(distancia: float, litros: float) -> float:
+# def calcular_consumo_medio(distancia: float, litros: float) -> float:
+#     """
+#     Calcula o consumo de litros de um carro por cada quilômetro.
+
+#     Args:
+#         distancia (float): Distâcia percorrida pelo carro.
+#         litros (float): Quantidade de listros consumida.
+
+#     Returns:
+#         float: A média de quantos quilômetros o carro faz por litro (Km/l).
+#     """
+#     media: float = distancia / litros
+#     return media
+
+
+# def exibir_consumo(resultado: float) -> None:
+#     """
+#     Exibe o consumo médio formatado na tela.
+
+#     Args:
+#         resultado (float): Consumo médio calculado em km/l
+#     """
+#     print(f"Consumo médio: {resultado:.1f} km/l")
+
+
+# distancia_percorrida: float = 420.0
+# listros_consumido: float = 35.0
+
+# consumo_final: float = calcular_consumo_medio(distancia_percorrida, listros_consumido)
+# exibir_consumo(consumo_final)
+
+# 8. Verificando uma meta de vendas.
+# Crie uma função chamada calcular_percentual_meta() que receba:
+# 1. valor da meta;
+# 2. valor vendido.
+# A função deve calcular e retornar o percentual da meta que foi atingido.
+# Exemplo: percentual = calcular_percentual_meta(10000.0, 7500.0)
+# Resultado: 75.0
+# Depois, crie uma função chamada exibir_status_meta() que receba esse percentual.
+# Ela deve exibir: Meta atingida!
+# caso o percentual seja maior ou igual a 100.
+# Caso contrário, deve exibir: Meta ainda não atingida.
+# Requisitos:
+# Utilize type hints.
+# calcular_percentual_meta() deve retornar float.
+# exibir_status_meta() deve retornar None.
+# Utilize o valor retornado por uma função como argumento da outra.
+# Adicione docstrings nas duas funções.
+# Não repita o cálculo do percentual fora da função.
+
+
+def calcular_percentual_meta(meta: float, vendido: float) -> float:
     """
-    Calcula o consumo de litros de um carro por cada quilômetro.
+    Calcula e retorna o percentual da meta que foi atingido.
 
     Args:
-        distancia (float): Distâcia percorrida pelo carro.
-        litros (float): Quantidade de listros consumida.
+        meta (float): Valor da meta estabelecido.
+        vendido (float): Valor vendido até o momento.
 
     Returns:
-        float: A média de quantos quilômetros o carro faz por litro (Km/l).
+        float: O percentual alcançado até o momento.
     """
-    media: float = distancia / litros
-    return media
+    resultado: float = (vendido / meta) * 100
+    return resultado
 
 
-def exibir_consumo(resultado: float) -> None:
+def exibir_status_meta(resultado: float) -> None:
     """
-    Exibe o consumo médio formatado na tela.
+    Exibe uma mensagem se a meta foi atingida ou não.
 
     Args:
-        resultado (float): Consumo médio calculado em km/l
+        resultado (float): Valor do calculo do percentual
+
+    Returns:
+        None
     """
-    print(f"Consumo médio: {resultado:.1f} km/l")
+    if resultado >= 100:
+        print("Meta atingida!")
+    else:
+        print("Meta ainda não atingida.")
 
 
-distancia_percorrida: float = 420.0
-listros_consumido: float = 35.0
+meta_empresa: float = 10000.0
+vendas_ate_momento: float = 7500.0
+percentual: float = calcular_percentual_meta(meta_empresa, vendas_ate_momento)
+exibir_status_meta(percentual)
 
-consumo_final: float = calcular_consumo_medio(distancia_percorrida, listros_consumido)
-exibir_consumo(consumo_final)
+# 9. Analisando uma entrega.
