@@ -181,21 +181,69 @@
 # Adicione uma docstring explicando a função.
 
 
-def converter_celsius_para_fahrenheit(celsius: float) -> float:
+# def converter_celsius_para_fahrenheit(celsius: float) -> float:
+#     """
+#     Recebe temperatura em Celsius e retorna o valor em Fahrenheit
+
+#     Args:
+#         celsius (float): Valor da temperatura em Celsius
+
+#     Returns:
+#         float: Valor da temperatura em Fahrenheit
+#     """
+#     fahrenheit: float = (celsius * 9 / 5) + 32
+
+#     return fahrenheit
+
+
+# valor_celsius: float = 32.1
+# temperatura_convertida: float = converter_celsius_para_fahrenheit(valor_celsius)
+# print(f"A temperatura {valor_celsius}°C é igual a {temperatura_convertida:.2f}°F")
+
+# 7. Calculando consumo médio.
+# Um veículo percorreu determinada distância utilizando uma quantidade de combustível.
+# Crie uma função chamada calcular_consumo_medio() que receba:
+# distância percorrida em quilômetros;
+# quantidade de litros utilizados.
+# A função deve retornar quantos quilômetros o veículo percorreu por litro.
+# Exemplo: consumo = calcular_consumo_medio(420.0, 35.0)
+# Resultado: 12.0
+# Depois, crie uma segunda função chamada exibir_consumo() que receba o resultado e exiba: Consumo médio: {resultado} km/l
+# Requisitos:
+# As duas funções devem possuir type hints.
+# calcular_consumo_medio() deve retornar float.
+# exibir_consumo() deve retornar None.
+# As duas funções devem possuir docstrings.
+# O resultado da primeira função deve ser passado como argumento para a segunda.
+
+
+def calcular_consumo_medio(distancia: float, litros: float) -> float:
     """
-    Recebe temperatura em Celsius e retorna o valor em Fahrenheit
+    Calcula o consumo de litros de um carro por cada quilômetro.
 
     Args:
-        celsius (float): Valor da temperatura em Celsius
+        distancia (float): Distâcia percorrida pelo carro.
+        litros (float): Quantidade de listros consumida.
 
     Returns:
-        float: Valor da temperatura em Fahrenheit
+        float: A média de quantos quilômetros o carro faz por litro (Km/l).
     """
-    fahrenheit: float = (celsius * 9 / 5) + 32
+    media: float = distancia / litros
+    return media
 
-    return fahrenheit
+
+def exibir_consumo(resultado: float) -> None:
+    """
+    Exibe o consumo médio formatado na tela.
+
+    Args:
+        resultado (float): Consumo médio calculado em km/l
+    """
+    print(f"Consumo médio: {resultado:.1f} km/l")
 
 
-valor_celsius: float = 32.1
-temperatura_convertida: float = converter_celsius_para_fahrenheit(valor_celsius)
-print(f"A temperatura {valor_celsius}°C é igual a {temperatura_convertida:.2f}°F")
+distancia_percorrida: float = 420.0
+listros_consumido: float = 35.0
+
+consumo_final: float = calcular_consumo_medio(distancia_percorrida, listros_consumido)
+exibir_consumo(consumo_final)
