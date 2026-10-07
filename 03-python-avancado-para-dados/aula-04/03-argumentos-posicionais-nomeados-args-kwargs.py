@@ -8,3 +8,7 @@ def cadastrar_produto(nome: str, preco: float, estoque: int) -> None:
 
 
 cadastrar_produto("Teclado", 150.00, 20)
+
+
+# Argumento nomeado.
+cadastrar_produto(nome="Mouse", preco=200.50, estoque=50)
