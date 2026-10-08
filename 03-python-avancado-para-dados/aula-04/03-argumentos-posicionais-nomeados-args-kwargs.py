@@ -44,3 +44,12 @@
 
 
 # mostrar_produtos("Teclado", "Fone de Ouvido", "Mouse")
+
+
+def calcular_total_pedido(*valores: float) -> float:
+    total = 0
+
+    for valor in valores:
+        total += valor
+
+    return total
