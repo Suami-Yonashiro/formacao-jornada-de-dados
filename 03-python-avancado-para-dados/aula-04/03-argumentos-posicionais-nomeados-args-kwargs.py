@@ -47,9 +47,14 @@
 
 
 def calcular_total_pedido(*valores: float) -> float:
-    total = 0
+    # total = 0
+    print(valores)
 
-    for valor in valores:
-        total += valor
+    # for valor in valores:
+    #     total += valor
 
-    return total
+    return sum(valores)
+
+
+total = calcular_total_pedido(120.0, 89.9, 45.5, 199.9, 491.34)
+print(f"Total do pedido: R${total:.2f}")
