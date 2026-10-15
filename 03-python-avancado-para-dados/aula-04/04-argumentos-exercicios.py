@@ -9,8 +9,15 @@
 # apresentar_jogador("Marta", "Atacante")
 
 
-def apresentar_jogador(jogador: str, posicao: str) -> None:
-    print(f"Jogador: {jogador} | Posição: {posicao}")
+def apresentar_jogador(nome: str, posicao: str) -> None:
+    """
+    Exibe uma mensagem formatada com o nome e a posição de um jogador de futebol.
+
+    Args:
+        nome (str): O nome do jogador.
+        posicao (str): A posição em que o jogador atua em campo.
+    """
+    print(f"Jogador: {nome} | Posição: {posicao}")
 
 
 apresentar_jogador("Marta", "Atacante")
