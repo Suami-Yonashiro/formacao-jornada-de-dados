@@ -46,15 +46,27 @@
 # mostrar_produtos("Teclado", "Fone de Ouvido", "Mouse")
 
 
-def calcular_total_pedido(*valores: float) -> float:
-    # total = 0
-    print(valores)
+# def calcular_total_pedido(*valores: float) -> float:
+#     # total = 0
+#     print(valores)
 
-    # for valor in valores:
-    #     total += valor
+#     # for valor in valores:
+#     #     total += valor
 
-    return sum(valores)
+#     return sum(valores)
 
 
-total = calcular_total_pedido(120.0, 89.9, 45.5, 199.9, 491.34)
-print(f"Total do pedido: R${total:.2f}")
+# total = calcular_total_pedido(120.0, 89.9, 45.5, 199.9, 491.34)
+# print(f"Total do pedido: R${total:.2f}")
+
+# Parâmetros normais + *args.
+
+
+def registrar_pedido(numero_pedido: int, *produtos: str) -> None:
+    print(f"Pedido: #{numero_pedido}")
+
+    for produto in produtos:
+        print(f"• {produto}")
+
+
+registrar_pedido(1025, "Notebook", "Mouse", "Fone de ouvido")
