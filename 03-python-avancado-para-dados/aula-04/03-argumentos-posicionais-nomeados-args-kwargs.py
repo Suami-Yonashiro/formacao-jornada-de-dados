@@ -59,14 +59,26 @@
 # total = calcular_total_pedido(120.0, 89.9, 45.5, 199.9, 491.34)
 # print(f"Total do pedido: R${total:.2f}")
 
-# Parâmetros normais + *args.
+# # Parâmetros normais + *args.
 
 
-def registrar_pedido(numero_pedido: int, *produtos: str) -> None:
-    print(f"Pedido: #{numero_pedido}")
+# def registrar_pedido(numero_pedido: int, *produtos: str) -> None:
+#     print(f"Pedido: #{numero_pedido}")
 
-    for produto in produtos:
-        print(f"• {produto}")
+#     for produto in produtos:
+#         print(f"• {produto}")
 
 
-registrar_pedido(1025, "Notebook", "Mouse", "Fone de ouvido")
+# registrar_pedido(1025, "Notebook", "Mouse", "Fone de ouvido")
+
+# # **kwargs
+
+# # def cadastrar_cliente(nome: str, email: str, telefone: str, cidade: str, estado: str): # substitui pelo **kwargs pois nem sempre todos os dados estarão disponiveis.
+
+# def cadastrar_cliente(**dados) -> None:
+#     for chave, valor in dados.items():
+#         print(f"{chave}: {valor}")
+
+# cadastrar_cliente(nome = "Luiza", email = "luiza@élegal.com", cidade = "Recife")
+
+# Parâmetros normais + **kwargs
