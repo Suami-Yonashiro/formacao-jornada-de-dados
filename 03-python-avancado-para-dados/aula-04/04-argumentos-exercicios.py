@@ -21,3 +21,28 @@ def apresentar_jogador(nome: str, posicao: str) -> None:
 
 
 apresentar_jogador("Marta", "Atacante")
+
+# Exercício 2 – A ordem dos argumentos.
+# Crie uma função chamada mostrar_partida que receba:
+# mandante
+# visitante
+# A função deve exibir os dois times no formato:
+# Brasil x Argentina
+# Faça as seguintes chamadas:
+# mostrar_partida("Brasil", "Argentina") mostrar_partida("Argentina", "Brasil")
+# Observe como a ordem dos argumentos posicionais altera o resultado.
+
+
+def mostrar_partida(mandante: str, visitante: str) -> None:
+    """
+    Exibe o confronto de uma partida de futebol no formato mandante x visitante.
+
+    Args:
+        mandante (str): Nome do time que joga em casa (mandante).
+        visitante (str): Nome do time adversário (visitante).
+    """
+    print(f"{mandante} X {visitante}")
+
+
+mostrar_partida("Brasil", "Argentina")
+mostrar_partida("Argentina", "Brasil")
