@@ -124,35 +124,64 @@
 # criar_partida("Flamengo", "São Paulo")
 # criar_partida("Flamengo", "São Paulo", estadio = "Estádio do Maracanã")
 
-# Exercício 6 – Mais de um valor padrão.
-# Crie uma função chamada registrar_jogador com os seguintes parâmetros:
-# nome
-# posicao="Não informada"
-# titular=False
-# A função deve mostrar os dados do jogador.
-# Teste as seguintes chamadas:
+# # Exercício 6 – Mais de um valor padrão.
+# # Crie uma função chamada registrar_jogador com os seguintes parâmetros:
+# # nome
+# # posicao="Não informada"
+# # titular=False
+# # A função deve mostrar os dados do jogador.
+# # Teste as seguintes chamadas:
+# # registrar_jogador("Marta")
+# # registrar_jogador("Marta", "Atacante")
+# # registrar_jogador("Marta", "Atacante", True)
+# # Depois, faça mais uma chamada alterando apenas o valor de titular, utilizando um argumento nomeado.
+
+
+# def registrar_jogador(
+#     nome: str, posicao: str = "Não informada", titular: bool = False
+# ) -> None:
+#     """
+#     Registra as informações de um jogador, definindo valores padrão para posição e titularidade.
+
+#     Args:
+#         nome (str): O nome do jogador.
+#         posicao (str, optional): A posição do jogador. O padrão é "Não informada".
+#         titular (bool, optional): Define se o jogador começa jogando. O padrão é False.
+#     """
+#     print(f"Nome: {nome}")
+#     print(f"Posição: {posicao}")
+#     print(f"Titular: {titular}\n")
+
+
 # registrar_jogador("Marta")
 # registrar_jogador("Marta", "Atacante")
 # registrar_jogador("Marta", "Atacante", True)
-# Depois, faça mais uma chamada alterando apenas o valor de titular, utilizando um argumento nomeado.
+
+# # Exercício 7 – Alterando apenas um valor padrão.
+# # Crie uma função chamada configurar_camisa que receba:
+# # nome
+# # numero
+# # tamanho="M"
+# # cor="amarela"
+# # Faça uma chamada informando uma cor diferente, mas mantendo o tamanho padrão.
+# # Exemplo:
+# # configurar_camisa("Marta", 10, cor="azul")
+# # Observe como o argumento nomeado permite alterar cor sem precisar passar um novo valor para tamanho.
 
 
-def registrar_jogador(
-    nome: str, posicao: str = "Não informada", titular: bool = False
+def configurar_camisa(
+    nome: str, numero: int, tamanho: str = "M", cor: str = "Amarela"
 ) -> None:
     """
-    Registra as informações de um jogador, definindo valores padrão para posição e titularidade.
+    Configura os detalhes da camisa de um jogador(a).
 
     Args:
-        nome (str): O nome do jogador.
-        posicao (str, optional): A posição do jogador. O padrão é "Não informada".
-        titular (bool, optional): Define se o jogador começa jogando. O padrão é False.
+        nome (str): O nome do jogador ou jogadora.
+        numero (int): O número da camisa.
+        tamanho (str, optional): O tamanho da camisa (P, M, G, etc.). O padrão é "M".
+        cor (str, optional): A cor principal da camisa. O padrão é "Amarela".
     """
-    print(f"Nome: {nome}")
-    print(f"Posição: {posicao}")
-    print(f"Titular: {titular}\n")
+    print(f"Jogador(a): {nome} | Número: {numero} | Tamanho: {tamanho} | Cor: {cor}")
 
 
-registrar_jogador("Marta")
-registrar_jogador("Marta", "Atacante")
-registrar_jogador("Marta", "Atacante", True)
+configurar_camisa("Marta", 10, cor="Azul")
