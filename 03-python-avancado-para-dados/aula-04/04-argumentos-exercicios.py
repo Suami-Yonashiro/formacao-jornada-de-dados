@@ -194,46 +194,72 @@
 # # listar_jogadores("Marta")listar_jogadores("Marta","Vini Jr","Alisson")
 
 
-def listar_jogadores(*jogadores: str) -> None:
+# def listar_jogadores(*jogadores: str) -> None:
+#     """
+#     Exibe uma lista de jogadores recebidos por meio de argumentos variáveis (*args).
+
+#     Args:
+#         *jogadores (str): Nomes dos jogadores passados dinamicamente.
+
+#     Returns:
+#         _type_: A função apenas imprime os nomes na tela.
+#     """
+#     for jogador in jogadores:
+#         print(f"• {jogador}")
+#     print()
+
+
+# listar_jogadores("Marta")
+# listar_jogadores("Marta", "Vini Jr", "Alisson")
+
+# # Exercício 9 – Trabalhando com os valores de *args.
+# # Crie uma função chamada somar_gols que receba uma quantidade indefinida de números utilizando *args.
+# # A função deve retornar a soma de todos os valores recebidos.
+# # Exemplo:
+# # total = somar_gols(2, 1, 3, 2)
+# # print(total)
+# # Resultado esperado: 8
+
+
+# def somar_gols(*gols: int) -> int:
+#     """
+#     Calcula o total de gols somando uma quantidade indefinida de números.
+
+#     Args:
+#          *gols (int): Uma quantidade variável de gols marcados.
+
+#     Returns:
+#         int: A soma total de todos os gols informados.
+#     """
+#     print(gols)
+#     return sum(gols)
+
+
+# total = somar_gols(2, 1, 3, 2)
+# print(total)
+
+# # Exercício 10 – Parâmetro normal e *args.
+# # Crie uma função chamada: convocar_selecao(pais, *jogadores)
+# # O primeiro argumento deve representar o país da seleção.
+# # Todos os argumentos posicionais seguintes devem representar os jogadores convocados.
+# # Exemplo de chamada:
+# # convocar_selecao("Brasil","Alisson","Marquinhos","Bruno Guimarães","Vini Jr")
+# # A função deve mostrar primeiro o país e depois cada jogador convocado.
+
+
+def convocar_selecao(pais: str, *jogadores: str) -> None:
     """
-    Exibe uma lista de jogadores recebidos por meio de argumentos variáveis (*args).
+     Exibe a convocação de uma seleção e lista os jogadores chamados.
 
     Args:
-        *jogadores (str): Nomes dos jogadores passados dinamicamente.
-
-    Returns:
-        _type_: A função apenas imprime os nomes na tela.
+        pais (str): O nome do país da seleção.
+    *jogadores (str): Nomes dos jogadores convocados.
     """
+    print(f"País: {pais}")
+    print("--- Convocados ---")
     for jogador in jogadores:
-        print(f"• {jogador}")
+        print(f" • {jogador}")
     print()
 
 
-listar_jogadores("Marta")
-listar_jogadores("Marta", "Vini Jr", "Alisson")
-
-# Exercício 9 – Trabalhando com os valores de *args.
-# Crie uma função chamada somar_gols que receba uma quantidade indefinida de números utilizando *args.
-# A função deve retornar a soma de todos os valores recebidos.
-# Exemplo:
-# total = somar_gols(2, 1, 3, 2)
-# print(total)
-# Resultado esperado: 8
-
-
-def somar_gols(*gols: int) -> int:
-    """
-    Calcula o total de gols somando uma quantidade indefinida de números.
-
-    Args:
-         *gols (int): Uma quantidade variável de gols marcados.
-
-    Returns:
-        int: A soma total de todos os gols informados.
-    """
-    print(gols)
-    return sum(gols)
-
-
-total = somar_gols(2, 1, 3, 2)
-print(total)
+convocar_selecao("Brasil", "Alisson", "Marquinhos", "Bruno Guimarães", "Vini Jr")
