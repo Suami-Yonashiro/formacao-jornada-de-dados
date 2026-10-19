@@ -57,16 +57,43 @@
 # # cadastrar_jogador(posicao="Goleiro", nome="Alisson", idade=33)
 
 
-def cadastrar_jogador(nome: str, idade: int, posicao: str) -> None:
-    """
-    Cadastra um jogador de futebol exibindo suas informações básicas na tela.
+# def cadastrar_jogador(nome: str, idade: int, posicao: str) -> None:
+#     """
+#     Cadastra um jogador de futebol exibindo suas informações básicas na tela.
 
-    Args:
-        nome (str): Nome do jogador.
-        idade (int): Idade do jogador em anos.
-        posicao (str): A posição em que o jogador atua.
-    """
-    print(f"Nome: {nome} | Idade: {idade} | Posição: {posicao}")
+#     Args:
+#         nome (str): Nome do jogador.
+#         idade (int): Idade do jogador em anos.
+#         posicao (str): A posição em que o jogador atua.
+#     """
+#     print(f"Nome: {nome} | Idade: {idade} | Posição: {posicao}")
 
 
-cadastrar_jogador(posicao="Goleiro", nome="Alisson", idade=33)
+# cadastrar_jogador(posicao="Goleiro", nome="Alisson", idade=33)
+
+# # Exercício 4 – Posicionais e nomeados juntos.
+# # Crie uma função chamada registrar_gol que receba:
+# # jogador
+# # time
+# # minuto
+# # Na chamada da função:
+# # Passe jogador por posição.
+# # Passe time por posição.
+# # Passe minuto pelo nome.
+# # A função deve exibir uma mensagem semelhante a:
+# # Vini Jr marcou para o Brasil aos 34 minutos.
+
+# def registrar_gol(jogador: str, time: str, minuto: int) -> None:
+#     """
+#     Registra e exibe a ocorrência de um gol em uma partida.
+
+#     Args:
+#         jogador (str): O nome do jogador que marcou o gol.
+#         time (str): O nome do time do jogador.
+#         minuto (int): O minuto da partida em que o gol aconteceu.
+#     """
+#     print(f"{jogador} marcou para o(a) {time} aos {minuto} minutos.")
+
+# registrar_gol("Vini Jr.", "Brasil", minuto = 34)
+
+# Exercício 5 – Parâmetro com valor padrão.
