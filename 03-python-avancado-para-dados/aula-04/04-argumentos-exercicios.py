@@ -83,6 +83,7 @@
 # # A função deve exibir uma mensagem semelhante a:
 # # Vini Jr marcou para o Brasil aos 34 minutos.
 
+
 # def registrar_gol(jogador: str, time: str, minuto: int) -> None:
 #     """
 #     Registra e exibe a ocorrência de um gol em uma partida.
@@ -94,6 +95,33 @@
 #     """
 #     print(f"{jogador} marcou para o(a) {time} aos {minuto} minutos.")
 
+
 # registrar_gol("Vini Jr.", "Brasil", minuto = 34)
 
 # Exercício 5 – Parâmetro com valor padrão.
+# Crie uma função chamada criar_partida que receba:
+# time_a
+# time_b
+# estadio
+# O parâmetro estadio deve possuir o seguinte valor padrão:
+# "Estádio Nacional"
+# Depois, faça duas chamadas:
+# Uma sem informar o estádio.
+# Outra informando um estádio diferente.
+
+
+def criar_partida(time_a: str, time_b: str, estadio: str = "Estádio Nacional") -> None:
+    """
+    Cria uma partida de futebol entre dois times em um determinado estádio.
+
+    Args:
+        time_a (str): O nome do primeiro time.
+        time_b (str): O nome do segundo time.
+        estadio (str, optional): O nome do estádio. O padrão é "Estádio Nacional".
+    """
+    print(f"Partida {time_a} x {time_b}")
+    print(f"Local: {estadio}\n")
+
+
+criar_partida("Flamengo", "São Paulo")
+criar_partida("Flamengo", "São Paulo", estadio="Estádio do Maracanã")
