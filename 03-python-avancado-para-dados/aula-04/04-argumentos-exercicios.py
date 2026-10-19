@@ -98,30 +98,61 @@
 
 # registrar_gol("Vini Jr.", "Brasil", minuto = 34)
 
-# Exercício 5 – Parâmetro com valor padrão.
-# Crie uma função chamada criar_partida que receba:
-# time_a
-# time_b
-# estadio
-# O parâmetro estadio deve possuir o seguinte valor padrão:
-# "Estádio Nacional"
-# Depois, faça duas chamadas:
-# Uma sem informar o estádio.
-# Outra informando um estádio diferente.
+# # Exercício 5 – Parâmetro com valor padrão.
+# # Crie uma função chamada criar_partida que receba:
+# # time_a
+# # time_b
+# # estadio
+# # O parâmetro estadio deve possuir o seguinte valor padrão:
+# # "Estádio Nacional"
+# # Depois, faça duas chamadas:
+# # Uma sem informar o estádio.
+# # Outra informando um estádio diferente.
+
+# def criar_partida(time_a: str, time_b: str, estadio: str = "Estádio Nacional") -> None:
+#     """
+#     Cria uma partida de futebol entre dois times em um determinado estádio.
+
+#     Args:
+#         time_a (str): O nome do primeiro time.
+#         time_b (str): O nome do segundo time.
+#         estadio (str, optional): O nome do estádio. O padrão é "Estádio Nacional".
+#     """
+#     print(f"Partida {time_a} x {time_b}")
+#     print(f"Local: {estadio}\n")
+
+# criar_partida("Flamengo", "São Paulo")
+# criar_partida("Flamengo", "São Paulo", estadio = "Estádio do Maracanã")
+
+# Exercício 6 – Mais de um valor padrão.
+# Crie uma função chamada registrar_jogador com os seguintes parâmetros:
+# nome
+# posicao="Não informada"
+# titular=False
+# A função deve mostrar os dados do jogador.
+# Teste as seguintes chamadas:
+# registrar_jogador("Marta")
+# registrar_jogador("Marta", "Atacante")
+# registrar_jogador("Marta", "Atacante", True)
+# Depois, faça mais uma chamada alterando apenas o valor de titular, utilizando um argumento nomeado.
 
 
-def criar_partida(time_a: str, time_b: str, estadio: str = "Estádio Nacional") -> None:
+def registrar_jogador(
+    nome: str, posicao: str = "Não informada", titular: bool = False
+) -> None:
     """
-    Cria uma partida de futebol entre dois times em um determinado estádio.
+    Registra as informações de um jogador, definindo valores padrão para posição e titularidade.
 
     Args:
-        time_a (str): O nome do primeiro time.
-        time_b (str): O nome do segundo time.
-        estadio (str, optional): O nome do estádio. O padrão é "Estádio Nacional".
+        nome (str): O nome do jogador.
+        posicao (str, optional): A posição do jogador. O padrão é "Não informada".
+        titular (bool, optional): Define se o jogador começa jogando. O padrão é False.
     """
-    print(f"Partida {time_a} x {time_b}")
-    print(f"Local: {estadio}\n")
+    print(f"Nome: {nome}")
+    print(f"Posição: {posicao}")
+    print(f"Titular: {titular}\n")
 
 
-criar_partida("Flamengo", "São Paulo")
-criar_partida("Flamengo", "São Paulo", estadio="Estádio do Maracanã")
+registrar_jogador("Marta")
+registrar_jogador("Marta", "Atacante")
+registrar_jogador("Marta", "Atacante", True)
