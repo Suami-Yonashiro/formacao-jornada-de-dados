@@ -169,19 +169,45 @@
 # # Observe como o argumento nomeado permite alterar cor sem precisar passar um novo valor para tamanho.
 
 
-def configurar_camisa(
-    nome: str, numero: int, tamanho: str = "M", cor: str = "Amarela"
-) -> None:
+# def configurar_camisa(
+#     nome: str, numero: int, tamanho: str = "M", cor: str = "Amarela"
+# ) -> None:
+#     """
+#     Configura os detalhes da camisa de um jogador(a).
+
+#     Args:
+#         nome (str): O nome do jogador ou jogadora.
+#         numero (int): O número da camisa.
+#         tamanho (str, optional): O tamanho da camisa (P, M, G, etc.). O padrão é "M".
+#         cor (str, optional): A cor principal da camisa. O padrão é "Amarela".
+#     """
+#     print(f"Jogador(a): {nome} | Número: {numero} | Tamanho: {tamanho} | Cor: {cor}")
+
+
+# configurar_camisa("Marta", 10, cor="Azul")
+
+# # Exercício 8 – Recebendo vários argumentos com *args.
+# # Crie uma função chamada listar_jogadores que receba uma quantidade variável de nomes utilizando *args.
+# # def listar_jogadores(*jogadores):
+# # A função deve percorrer os jogadores recebidos e exibir cada nome.
+# # Teste a função com diferentes quantidades de argumentos:
+# # listar_jogadores("Marta")listar_jogadores("Marta","Vini Jr","Alisson")
+
+
+def listar_jogadores(*jogadores: str) -> None:
     """
-    Configura os detalhes da camisa de um jogador(a).
+    Exibe uma lista de jogadores recebidos por meio de argumentos variáveis (*args).
 
     Args:
-        nome (str): O nome do jogador ou jogadora.
-        numero (int): O número da camisa.
-        tamanho (str, optional): O tamanho da camisa (P, M, G, etc.). O padrão é "M".
-        cor (str, optional): A cor principal da camisa. O padrão é "Amarela".
+        *jogadores (str): Nomes dos jogadores passados dinamicamente.
+
+    Returns:
+        _type_: A função apenas imprime os nomes na tela.
     """
-    print(f"Jogador(a): {nome} | Número: {numero} | Tamanho: {tamanho} | Cor: {cor}")
+    for jogador in jogadores:
+        print(f"• {jogador}")
+    print()
 
 
-configurar_camisa("Marta", 10, cor="Azul")
+listar_jogadores("Marta")
+listar_jogadores("Marta", "Vini Jr", "Alisson")
