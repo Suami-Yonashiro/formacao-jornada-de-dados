@@ -253,7 +253,7 @@ def convocar_selecao(pais: str, *jogadores: str) -> None:
 
     Args:
         pais (str): O nome do país da seleção.
-    *jogadores (str): Nomes dos jogadores convocados.
+        *jogadores (str): Nomes dos jogadores convocados.
     """
     print(f"País: {pais}")
     print("--- Convocados ---")
@@ -263,3 +263,24 @@ def convocar_selecao(pais: str, *jogadores: str) -> None:
 
 
 convocar_selecao("Brasil", "Alisson", "Marquinhos", "Bruno Guimarães", "Vini Jr")
+
+# Exercício 11 – Recebendo argumentos nomeados com **kwargs.
+# Crie uma função chamada mostrar_jogador que receba uma quantidade variável de argumentos nomeados utilizando **kwargs.
+# def mostrar_jogador(**dados):
+# Faça uma chamada semelhante a:
+# mostrar_jogador(nome="Marta", idade=40, posicao="Atacante")
+# Dentro da função, percorra os dados recebidos e mostre cada chave junto com seu respectivo valor.
+
+
+def mostrar_jogador(**dados) -> None:
+    """
+    Exibe os detalhes de um jogador recebidos via argumentos nomeados variáveis (**kwargs).
+
+    Args:
+        **dados: Argumentos nomeados contendo informações diversas do jogador (ex: nome, idade, posicao).
+    """
+    for chave, valor in dados.items():
+        print(f"{chave.capitalize()}: {valor}")
+
+
+mostrar_jogador(nome="Marta", idade=40, posicao="Atacante")
